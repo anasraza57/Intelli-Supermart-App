@@ -1,243 +1,123 @@
 package com.example.intelli_supermart_app;
 
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.AsyncTask;
 import android.os.Bundle;
-import android.util.Log;
-import android.view.View;
-import android.widget.Button;
-import android.widget.EditText;
+import android.view.MenuItem;
+import android.widget.ImageView;
 import android.widget.Toast;
+import android.widget.ViewFlipper;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
+import com.google.android.material.navigation.NavigationView;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements ResponseListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
 
-    List<StudentModel> list;
-    String strURL = "";
-    String data= "";
-    EditText nameText, rollnumText;
-    Button viewbutton, updatButton, insertButton, deleteButton;
+    ViewFlipper viewFlipper;
+    Toolbar toolbar;
+    DrawerLayout drawerLayout;
+    NavigationView navigationView;
+    RecyclerView recyclerView;
+    CategoryRecyclerAdapter categoryRecyclerAdapter;
+    List<Item> items;
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        list = new ArrayList<>();
-        nameText = (EditText) findViewById(R.id.name);
-        rollnumText = (EditText) findViewById(R.id.rollno);
-        viewbutton = (Button) findViewById(R.id.get);
-        insertButton = (Button) findViewById(R.id.post);
-        updatButton = (Button) findViewById(R.id.put);
-        deleteButton = (Button) findViewById(R.id.delete);
 
+        toolbar = findViewById(R.id.toolbar);
+        setSupportActionBar(toolbar);
 
-        viewbutton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                strURL = "https://intelli-supermart.herokuapp.com/get";
-                new ViewAsync(MainActivity.this).execute();
-            }
-        });
+        drawerLayout = findViewById(R.id.drawerlayout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        drawerLayout.addDrawerListener(toggle);
+        toggle.syncState();
 
-        insertButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                strURL = "https://intelli-supermart.herokuapp.com/add/"+ nameText.getText().toString()+"/"+rollnumText.getText().toString();
-                new AddAsync(MainActivity.this).execute();
-            }
-        });
+        navigationView = findViewById(R.id.nav_view);
+        navigationView.setNavigationItemSelectedListener(this);
 
-        updatButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                strURL = "https://intelli-supermart.herokuapp.com/update/"+ nameText.getText().toString()+"/"+rollnumText.getText().toString();
-                new UpdateAsync(MainActivity.this).execute();
-            }
-        });
+        int images[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
+        viewFlipper = findViewById(R.id.viewflipper);
 
-        deleteButton.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                strURL = "https://intelli-supermart.herokuapp.com/delete/"+ nameText.getText().toString()+"/"+rollnumText.getText().toString();
-                new DeleteAsync(MainActivity.this).execute();
-            }
-        });
+        for (int image : images) {
+            flipperimages(image);
+        }
+
+        recyclerView = findViewById(R.id.recyclerView);
+        initData();
+        initRecyclerView();
+    }
+
+    private void initRecyclerView() {
+        categoryRecyclerAdapter = new CategoryRecyclerAdapter(items, getApplicationContext());
+        recyclerView.setLayoutManager(new LinearLayoutManager(this));
+        recyclerView.setAdapter(categoryRecyclerAdapter);
+    }
+
+    private void initData() {
+        items = new ArrayList<>();
+        for (int i = 0; i < 10; i++) {
+            Item item = new Item("This is item " + (i + 1), "This is a child item" + (i + 1));
+            items.add(item);
+        }
     }
 
     @Override
-    public void UpdateUI(String Response) {
-        list = StudentModel.ParseJson(Response);
-        nameText.setText(list.get(0).name);
-        rollnumText.setText(list.get(0).rollnum);
-    }
-
-
-    public class ViewAsync extends AsyncTask<String, String, String> {
-        ResponseListener c;
-
-        public ViewAsync(ResponseListener c) {
-            this.c = c;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            c.UpdateUI(s);
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                URL url = new URL(strURL);
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("GET");
-                con.connect();
-
-                BufferedReader bf = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                String line = "";
-                while(line != null) {
-                    line = bf.readLine();
-                    if(!line.equals("null")) {
-                        data = data + line;
-                    }
-                    Log.wtf("FUCK", line);
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return data;
+    public void onBackPressed() {
+        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
+            drawerLayout.closeDrawer(GravityCompat.START);
+        } else {
+            super.onBackPressed();
         }
     }
 
-    public class AddAsync extends AsyncTask<String, String, String>{
-        ResponseListener c;
+    public void flipperimages(int image) {
+        ImageView imageView = new ImageView(this);
+        imageView.setBackgroundResource(image);
 
-        public AddAsync(ResponseListener c) {
-            this.c = c;
-        }
+        viewFlipper.addView(imageView);
+        viewFlipper.setFlipInterval(4000);
+        viewFlipper.setAutoStart(true);
 
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            Toast.makeText(getApplicationContext(),"Data Added", Toast.LENGTH_LONG);
-            nameText.setText("");
-            rollnumText.setText("");
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                URL url = new URL(strURL);
-                Log.wtf("FUCK", strURL);
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("POST");
-                con.connect();
-
-                BufferedReader bf = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                String line = "";
-                while(line != null) {
-                    line = bf.readLine();
-                    if(!line.equals("null")) {
-                        data = data + line;
-                    }
-                    Log.wtf("FUCK", line);
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return data;
-        }
+        viewFlipper.setInAnimation(this, android.R.anim.slide_in_left);
+        viewFlipper.setOutAnimation(this, android.R.anim.slide_out_right);
     }
 
-    public class UpdateAsync extends AsyncTask<String, String, String>{
-        ResponseListener c;
-
-        public UpdateAsync(ResponseListener c) {
-            this.c = c;
+    @Override
+    public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        switch (menuItem.getItemId()){
+            case R.id.nav_message:
+                Toast.makeText(this,"Message",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.nav_chat:
+                Toast.makeText(this,"Chat",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.nav_profile:
+                Toast.makeText(this,"Profile",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.nav_send:
+                Toast.makeText(this,"Send",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.nav_share:
+                Toast.makeText(this,"Share",Toast.LENGTH_LONG).show();
+                break;
+            case R.id.nav_view:
+                Toast.makeText(this,"View",Toast.LENGTH_LONG).show();
+                break;
         }
 
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            Toast.makeText(getApplicationContext(),"Data Updated", Toast.LENGTH_LONG);
-        }
+        drawerLayout.closeDrawer(GravityCompat.START);
 
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                URL url = new URL(strURL);
-                Log.wtf("FUCK", strURL);
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("PUT");
-                con.connect();
-
-                BufferedReader bf = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                String line = "";
-                while(line != null) {
-                    line = bf.readLine();
-                    if(!line.equals("null")) {
-                        data = data + line;
-                    }
-                    Log.wtf("FUCK", line);
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return data;
-        }
-    }
-
-    public class DeleteAsync extends AsyncTask<String, String, String>{
-        ResponseListener c;
-
-        public DeleteAsync(ResponseListener c) {
-            this.c = c;
-        }
-
-        @Override
-        protected void onPostExecute(String s) {
-            super.onPostExecute(s);
-            Toast.makeText(getApplicationContext(),"Data Deleted", Toast.LENGTH_LONG);
-            nameText.setText("");
-            rollnumText.setText("");
-        }
-
-        @Override
-        protected String doInBackground(String... strings) {
-            try {
-                URL url = new URL(strURL);
-                Log.wtf("FUCK", strURL);
-                HttpURLConnection con = (HttpURLConnection) url.openConnection();
-                con.setRequestMethod("DELETE");
-                con.connect();
-
-                BufferedReader bf = new BufferedReader(new InputStreamReader(con.getInputStream()));
-                String line = "";
-                while(line != null) {
-                    line = bf.readLine();
-                    if(!line.equals("null")) {
-                        data = data + line;
-                    }
-                    Log.wtf("FUCK", line);
-                }
-
-            } catch (Exception e) {
-                e.printStackTrace();
-            }
-
-            return data;
-        }
+        return true;
     }
 }
