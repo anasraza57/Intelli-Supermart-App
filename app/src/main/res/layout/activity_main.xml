@@ -7,7 +7,7 @@
     android:layout_height="match_parent"
     android:fitsSystemWindows="true"
     tools:context=".MainActivity">
-<!--    tools:openDrawer="start">-->
+    <!--    tools:openDrawer="start">-->
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -23,22 +23,32 @@
             android:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar"
             app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
 
-            <ImageView
-                android:layout_width="wrap_content"
-                android:layout_height="wrap_content"
-                android:layout_gravity="center"
-                android:src="@drawable/logo" />
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content">
+
+                <ImageView
+                    android:id="@+id/logo"
+                    android:layout_width="1500dp"
+                    android:layout_height="150dp"
+                    android:src="@drawable/logo" />
+
+<!--                <SearchView-->
+<!--                    android:id="@+id/searchBar"-->
+<!--                    android:layout_width="match_parent"-->
+<!--                    android:layout_height="wrap_content" />-->
+            </RelativeLayout>
         </androidx.appcompat.widget.Toolbar>
 
         <ViewFlipper
             android:id="@+id/viewflipper"
             android:layout_width="match_parent"
-            android:layout_height="200dp"/>
+            android:layout_height="200dp" />
 
         <androidx.recyclerview.widget.RecyclerView
             android:id="@+id/recyclerView"
             android:layout_width="match_parent"
-            android:layout_height="match_parent"/>
+            android:layout_height="match_parent" />
     </LinearLayout>
 
     <com.google.android.material.navigation.NavigationView

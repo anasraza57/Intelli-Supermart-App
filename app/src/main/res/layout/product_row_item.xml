@@ -10,7 +10,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/subTextView"
+        android:layout_alignTop="@+id/subTextView"
         android:gravity="center">
 
         <View
@@ -21,7 +21,7 @@
 
     <ImageView
         android:id="@+id/image"
-        android:layout_width="115dp"
+        android:layout_width="125dp"
         android:layout_height="115dp"
         android:src="@mipmap/ic_launcher"/>
     <TextView
@@ -37,7 +37,7 @@
         android:textSize="20sp" />
 
     <TextView
-        android:id="@+id/textViewChild"
+        android:id="@+id/subTextView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/textView"
@@ -56,8 +56,27 @@
         android:layout_below="@+id/image"
         android:layout_marginBottom="1dp"
         android:layout_centerHorizontal="true"
+        android:horizontalSpacing="10dp"
         android:verticalSpacing="10dp"
         android:numColumns="3"
         android:padding="16dp">
     </GridView>
+<!--    <RelativeLayout-->
+<!--        android:id="@+id/expandableLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/image"-->
+<!--        android:layout_marginBottom="1dp"-->
+<!--        android:padding="16dp">-->
+
+<!--        <TextView-->
+<!--            android:id="@+id/textViewChild"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="wrap_content"-->
+<!--            android:layout_alignParentTop="true"-->
+<!--            android:padding="8dp"-->
+<!--            android:text="Item1"-->
+<!--            android:textColor="@color/colorPrimary"-->
+<!--            android:textSize="20sp" />-->
+<!--    </RelativeLayout>-->
 </RelativeLayout>

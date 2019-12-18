@@ -11,6 +11,9 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import android.os.Bundle;
 import android.view.MenuItem;
+import android.view.View;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
@@ -29,6 +32,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     RecyclerView recyclerView;
     CategoryRecyclerAdapter categoryRecyclerAdapter;
     List<Item> items;
+    int[] gridImages = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -46,20 +51,21 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        int images[] = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
+        int[] flipImages = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
         viewFlipper = findViewById(R.id.viewflipper);
 
-        for (int image : images) {
+        for (int image : flipImages) {
             flipperimages(image);
         }
 
         recyclerView = findViewById(R.id.recyclerView);
         initData();
         initRecyclerView();
+
     }
 
     private void initRecyclerView() {
-        categoryRecyclerAdapter = new CategoryRecyclerAdapter(items, getApplicationContext());
+        categoryRecyclerAdapter = new CategoryRecyclerAdapter(items, gridImages, getApplicationContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(categoryRecyclerAdapter);
     }

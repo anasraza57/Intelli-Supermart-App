@@ -2,10 +2,13 @@ package com.example.intelli_supermart_app;
 
 import android.animation.ObjectAnimator;
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
+import android.widget.AdapterView;
+import android.widget.GridView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -18,8 +21,10 @@ import java.util.List;
 public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecyclerAdapter.ViewHolder>{
     List<Item> items;
     Context context;
-    public CategoryRecyclerAdapter(List<Item> items, Context applicationContext) {
+    int[] images;
+    public CategoryRecyclerAdapter(List<Item> items, int[] gridImages, Context applicationContext) {
         this.items = items;
+        this.images = gridImages;
         this.context = applicationContext;
     }
 
@@ -39,6 +44,16 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
         holder.item.setText(item.getText());
         holder.subItem.setText(item.getSubtext());
         holder.item.setText(item.getText());
+
+        CategoryGridAdaptor gridAdaptor = new CategoryGridAdaptor(images, context);
+        holder.expandableLayout.setAdapter(gridAdaptor);
+
+        holder.expandableLayout.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(context,"Image: "+position, Toast.LENGTH_LONG).show();
+            }
+        });
 
         boolean isExpanded = items.get(position).isExpanded();
         if (isExpanded){
@@ -66,7 +81,8 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
 
     class ViewHolder extends RecyclerView.ViewHolder {
         TextView item, subItem;
-        RelativeLayout expandableLayout, button;
+        RelativeLayout button;
+        GridView expandableLayout;
 
         public ViewHolder(@NonNull View itemView) {
             super(itemView);
