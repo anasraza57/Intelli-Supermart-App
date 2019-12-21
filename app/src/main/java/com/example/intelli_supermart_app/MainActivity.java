@@ -1,34 +1,41 @@
 package com.example.intelli_supermart_app;
 
+import android.os.Bundle;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.snackbar.Snackbar;
+
+import android.view.MenuItem;
+import android.view.View;
+
 import androidx.annotation.NonNull;
 import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.core.view.GravityCompat;
+
+import com.google.android.material.navigation.NavigationView;
+
+import androidx.drawerlayout.widget.DrawerLayout;
+
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.Toolbar;
-import androidx.core.view.GravityCompat;
-import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import android.os.Bundle;
-import android.view.MenuItem;
-import android.view.View;
-import android.widget.AdapterView;
-import android.widget.GridView;
+import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
 
-import com.google.android.material.navigation.NavigationView;
-
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener{
+public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+    DrawerLayout drawer;
+    Toolbar toolbar;
+    NavigationView navigationView;
 
     ViewFlipper viewFlipper;
-    Toolbar toolbar;
-    DrawerLayout drawerLayout;
-    NavigationView navigationView;
+
     RecyclerView recyclerView;
     CategoryRecyclerAdapter categoryRecyclerAdapter;
     List<Item> items;
@@ -39,13 +46,19 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
         toolbar = findViewById(R.id.toolbar);
         setSupportActionBar(toolbar);
-
-        drawerLayout = findViewById(R.id.drawerlayout);
-        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawerLayout, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
-        drawerLayout.addDrawerListener(toggle);
+        FloatingActionButton fab = findViewById(R.id.fab);
+        fab.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
+                        .setAction("Action", null).show();
+            }
+        });
+        drawer = findViewById(R.id.drawer_layout);
+        ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
+        drawer.addDrawerListener(toggle);
         toggle.syncState();
 
         navigationView = findViewById(R.id.nav_view);
@@ -79,12 +92,9 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     }
 
     @Override
-    public void onBackPressed() {
-        if (drawerLayout.isDrawerOpen(GravityCompat.START)) {
-            drawerLayout.closeDrawer(GravityCompat.START);
-        } else {
-            super.onBackPressed();
-        }
+    public boolean onCreateOptionsMenu(Menu menu) {
+        getMenuInflater().inflate(R.menu.main, menu);
+        return true;
     }
 
     public void flipperimages(int image) {
@@ -101,28 +111,28 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
-        switch (menuItem.getItemId()){
-            case R.id.nav_message:
-                Toast.makeText(this,"Message",Toast.LENGTH_LONG).show();
+        switch (menuItem.getItemId()) {
+            case R.id.nav_home:
+                Toast.makeText(this, "Home", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.nav_chat:
-                Toast.makeText(this,"Chat",Toast.LENGTH_LONG).show();
+            case R.id.nav_gallery:
+                Toast.makeText(this, "Gallery", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.nav_profile:
-                Toast.makeText(this,"Profile",Toast.LENGTH_LONG).show();
+            case R.id.nav_slideshow:
+                Toast.makeText(this, "Slide Show", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.nav_send:
-                Toast.makeText(this,"Send",Toast.LENGTH_LONG).show();
+            case R.id.nav_tools:
+                Toast.makeText(this, "Tools", Toast.LENGTH_LONG).show();
                 break;
             case R.id.nav_share:
-                Toast.makeText(this,"Share",Toast.LENGTH_LONG).show();
+                Toast.makeText(this, "Share", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.nav_view:
-                Toast.makeText(this,"View",Toast.LENGTH_LONG).show();
+            case R.id.nav_send:
+                Toast.makeText(this, "Send", Toast.LENGTH_LONG).show();
                 break;
         }
 
-        drawerLayout.closeDrawer(GravityCompat.START);
+        drawer.closeDrawer(GravityCompat.START);
 
         return true;
     }

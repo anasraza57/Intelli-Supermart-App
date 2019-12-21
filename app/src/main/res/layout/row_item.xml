@@ -10,7 +10,7 @@
         android:layout_width="48dp"
         android:layout_height="48dp"
         android:layout_alignParentEnd="true"
-        android:layout_above="@+id/subTextView"
+        android:layout_above="@+id/textViewChild"
         android:gravity="center">
 
         <View

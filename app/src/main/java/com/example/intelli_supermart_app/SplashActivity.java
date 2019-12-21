@@ -20,7 +20,7 @@ public class SplashActivity extends AppCompatActivity {
         iv=(ImageView)findViewById(R.id.logo);
         Animation myanim= AnimationUtils.loadAnimation(this,R.anim.mytransition);
         iv.startAnimation(myanim);
-        final Intent intent=new Intent(this,MainActivity.class);
+        final Intent intent=new Intent(this, MainActivity.class);
         Thread timer=new Thread(){
             public void run(){
                 try{
