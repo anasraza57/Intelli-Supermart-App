@@ -1,30 +1,26 @@
 package com.example.intelli_supermart_app;
 
+import android.content.Intent;
 import android.os.Bundle;
-
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
-import com.google.android.material.snackbar.Snackbar;
-
+import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
-
-import androidx.annotation.NonNull;
-import androidx.appcompat.app.ActionBarDrawerToggle;
-import androidx.core.view.GravityCompat;
-
-import com.google.android.material.navigation.NavigationView;
-
-import androidx.drawerlayout.widget.DrawerLayout;
-
-import androidx.appcompat.app.AppCompatActivity;
-import androidx.appcompat.widget.Toolbar;
-import androidx.recyclerview.widget.LinearLayoutManager;
-import androidx.recyclerview.widget.RecyclerView;
-
-import android.view.Menu;
 import android.widget.ImageView;
 import android.widget.Toast;
 import android.widget.ViewFlipper;
+
+import androidx.annotation.NonNull;
+import androidx.appcompat.app.ActionBarDrawerToggle;
+import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.Toolbar;
+import androidx.core.view.GravityCompat;
+import androidx.drawerlayout.widget.DrawerLayout;
+import androidx.recyclerview.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.RecyclerView;
+
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
+import com.google.android.material.navigation.NavigationView;
+import com.google.android.material.snackbar.Snackbar;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -49,6 +45,15 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar = findViewById(R.id.toolbar);
         toolbar.setLogo(R.drawable.logo1);
         setSupportActionBar(toolbar);
+
+        toolbar.setNavigationOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                finish();
+            }
+        });
+
         FloatingActionButton fab = findViewById(R.id.fab);
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
@@ -112,6 +117,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
 
     @Override
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
+        Intent intent = null;
         switch (menuItem.getItemId()) {
             case R.id.nav_home:
                 Toast.makeText(this, "Home", Toast.LENGTH_LONG).show();
@@ -125,16 +131,40 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
             case R.id.nav_tools:
                 Toast.makeText(this, "Tools", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.nav_share:
-                Toast.makeText(this, "Share", Toast.LENGTH_LONG).show();
+            case R.id.nav_help:
+                intent = new Intent(this, HelpActivity.class);
+                startActivity(intent);
                 break;
-            case R.id.nav_send:
-                Toast.makeText(this, "Send", Toast.LENGTH_LONG).show();
+            case R.id.nav_terms:
+                intent = new Intent(this, TermsActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_policy:
+                intent = new Intent(this, PolicyActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_contact:
+                intent = new Intent(this, ContactActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.nav_about:
+                intent = new Intent(this, AboutActivity.class);
+                startActivity(intent);
                 break;
         }
 
         drawer.closeDrawer(GravityCompat.START);
 
         return true;
+    }
+
+    @Override
+    public void onBackPressed() {
+        if (drawer.isDrawerOpen(GravityCompat.START)) {
+            drawer.closeDrawer(GravityCompat.START);
+        } else {
+
+            super.onBackPressed();
+        }
     }
 }

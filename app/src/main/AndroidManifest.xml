@@ -12,10 +12,27 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
+            android:name=".TermsActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".PolicyActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".HelpActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".ContactActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
+            android:name=".AboutActivity"
+            android:parentActivityName=".MainActivity" />
+        <activity
             android:name=".MainActivity"
             android:label="@string/title_activity_main"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
-        <activity android:name=".SplashActivity">
+            android:theme="@style/AppTheme.NoActionBar1" />
+        <activity
+            android:name=".SplashActivity"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
