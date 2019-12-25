@@ -10,12 +10,11 @@
     <string name="nav_header_desc">Navigation header</string>
     <string name="action_settings">Settings</string>
 
-    <string name="menu_home">Home</string>
-    <string name="menu_gallery">Gallery</string>
-    <string name="menu_slideshow">Slideshow</string>
-    <string name="menu_tools">Tools</string>
+    <string name="menu_login">Login</string>
+    <string name="menu_my_addresses">My Addresses</string>
+    <string name="menu_my_orders">My Orders</string>
+    <string name="menu_my_cart">My Cart</string>
     <string name="search_hint">Search here</string>
-
     <string name="about" translatable="false">Intelli Supermart (Private) Limited is a subsidiary of Hum Network Limited.
         Intelli Supermart is an online super market which aims at saving users from the hassle of going out and
         buying every day necessities. The online store brings to you different categories such as biscuits
@@ -31,7 +30,6 @@
         journey of our customers, starting with ordering quality products at competitive pricing, on time
         delivery and hassle-free return policy.
     </string>
-
     <string name="policy">At Intelli Supermart, we understand your concern about your personal information, we care about
         it too. As such, we ensure we safeguard the information provided and honor your requests for
         confidentiality when you log in to www. Intelli Supermart.com Website and mobile app.
@@ -107,7 +105,6 @@
         1.18 To use our Website, you are consenting to our Privacy Policy. We appreciate your trust in us and we
         promise to protect data. Feel free to contact our customer service team to help you out! Shoot us
         an email at customer@Intelli Supermart.com or contact us on (021) 111 116 278.\n\n</string>
-
     <string name="conditions">Intelli Supermart Terms of Use
         \n\n1.1 Welcome, again, to Intelli Supermart.com. It is strongly recommended that you read and understand the “Terms of Use",as by accessing to this Website you’re bound by the same and acknowledge that it constitutes as part of the procedure followed by Intelli Supermart. If you don’t agree then,unfortunately,you won’t be able to utilize our Website’s services.
         \n1.2 The following Terms of Use posted on Intelli Supermart.com is an agreement between us (Website) and you (Visitors) and by visiting our site you hereby are accepting and consenting to theclauses outlined in the Terms of Use. On time to time basis, we may modify the Terms of Useand your continued use of our Website signify that you are bound to approve of our modified Terms of Use.
@@ -122,7 +119,6 @@
         \n2.1 Intelli Supermart believes in provision of accurate details regarding the products available on Website.A times there might be inaccuracies, errors or mispricing in the prices mentioned.However,in case of mispriced of product or total amount of order, User may contact ourCustomer Service department and we will be please to help you out. In case of unconfirme dorder, Intelli Supermart reserves the right to cancel or refuse delivery at its sole discretion.
         \n2.2 Any changes in order or its related information would not be entertained at the end moment. Users are advised to receive their order within the allotted time slot.
         \n2.3 For an instance, if you have placed an order and till the time of delivery the product runs out of stock; we will make you our priority and get back to you as soon as we restock the product again.If an untoward incident or an unforeseen situation occurs, there might bea delay in the processing of your order. That said, Intelli Supermart will not be held responsible and promises to try its best to resolve the situation at the earliest. We would be glad to hearfrom you. For queries and feedback, email us: customer@intellisupermart.com\n\n</string>
-
     <string name="help">General
         \n\n
         What is Intelli Supermart?
@@ -240,21 +236,18 @@
         By signing up on Intelli Supermart, you can track record of all the orders you place as well as saving yourself to provide personal information repeatedly thus giving a faster and safer experience to shop with Intelli Supermart.\n\n
         Once signed up, how should I login?\n\n
         You should log in through “SIGN IN” tab on the top right corner of the website.\n\n</string>
-
     <string name="contact"><b>Contact Details</b></string>
     <string name="address"> Punjab University College of Information and Technology,Lahore.</string>
     <string name="phone">111–111–111</string>
     <string name="email">customer@intellisupermart.com</string>
-    <string name="addButton">Add New Address</string>
     <string name="need_help">Need Help?</string>
     <string name="terms">Terms and Conditions</string>
     <string name="privacy_policy">Privacy Policy</string>
     <string name="contact_us">Contact Us</string>
     <string name="about_us">About Us</string>
+    <string name="addButton">Add New Address</string>
     <string name="others">Others</string>
     <string name="title_activity_main_category">MainCategoryActivity</string>
-    <string name="menu_share">Share</string>
-    <string name="menu_send">Send</string>
 
     <string name="logo">logo</string>
 </resources>

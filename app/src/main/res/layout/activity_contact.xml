@@ -24,7 +24,7 @@
         android:layout_below="@id/t1"
         android:layout_marginTop="10dp"
         android:contentDescription="@string/logo"
-        app:srcCompat="@drawable/ic_contact" />
+        app:srcCompat="@drawable/ic_address" />
 
     <TextView
         android:id="@+id/address"

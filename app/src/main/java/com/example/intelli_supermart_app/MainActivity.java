@@ -74,7 +74,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         viewFlipper = findViewById(R.id.viewflipper);
 
         for (int image : flipImages) {
-            flipperimages(image);
+            flipperImages(image);
         }
 
         recyclerView = findViewById(R.id.recyclerView);
@@ -103,7 +103,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         return true;
     }
 
-    public void flipperimages(int image) {
+    public void flipperImages(int image) {
         ImageView imageView = new ImageView(this);
         imageView.setBackgroundResource(image);
 
@@ -119,17 +119,17 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
     public boolean onNavigationItemSelected(@NonNull MenuItem menuItem) {
         Intent intent = null;
         switch (menuItem.getItemId()) {
-            case R.id.nav_home:
-                Toast.makeText(this, "Home", Toast.LENGTH_LONG).show();
+            case R.id.nav_login:
+                Toast.makeText(this, "Login", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.nav_gallery:
-                Toast.makeText(this, "Gallery", Toast.LENGTH_LONG).show();
+            case R.id.nav_my_addresses:
+                Toast.makeText(this, "My Addresses", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.nav_slideshow:
-                Toast.makeText(this, "Slide Show", Toast.LENGTH_LONG).show();
+            case R.id.nav_my_orders:
+                Toast.makeText(this, "My Order", Toast.LENGTH_LONG).show();
                 break;
-            case R.id.nav_tools:
-                Toast.makeText(this, "Tools", Toast.LENGTH_LONG).show();
+            case R.id.nav_my_cart:
+                Toast.makeText(this, "Cart", Toast.LENGTH_LONG).show();
                 break;
             case R.id.nav_help:
                 intent = new Intent(this, HelpActivity.class);
