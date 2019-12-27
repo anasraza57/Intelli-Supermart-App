@@ -3,24 +3,26 @@
     xmlns:tools="http://schemas.android.com/tools"
     tools:showIn="navigation_view">
 
-    <group android:checkableBehavior="single">
-        <item
-            android:id="@+id/nav_login"
-            android:icon="@drawable/ic_menu_login"
-            android:title="@string/menu_login" />
-        <item
-            android:id="@+id/nav_my_addresses"
-            android:icon="@drawable/ic_menu_my_addresses"
-            android:title="@string/menu_my_addresses" />
-        <item
-            android:id="@+id/nav_my_orders"
-            android:icon="@drawable/ic_menu_my_order"
-            android:title="@string/menu_my_orders" />
-        <item
-            android:id="@+id/nav_my_cart"
-            android:icon="@drawable/ic_menu_cart"
-            android:title="@string/menu_my_cart" />
-    </group>
+    <item android:title="@string/my_info">
+        <menu>
+            <item
+                android:id="@+id/nav_login"
+                android:icon="@drawable/ic_menu_login"
+                android:title="@string/menu_login" />
+            <item
+                android:id="@+id/nav_my_addresses"
+                android:icon="@drawable/ic_menu_my_addresses"
+                android:title="@string/menu_my_addresses" />
+            <item
+                android:id="@+id/nav_my_orders"
+                android:icon="@drawable/ic_menu_my_order"
+                android:title="@string/menu_my_orders" />
+            <item
+                android:id="@+id/nav_my_cart"
+                android:icon="@drawable/ic_menu_cart"
+                android:title="@string/menu_my_cart" />
+        </menu>
+    </item>
 
     <item android:title="@string/others">
         <menu>

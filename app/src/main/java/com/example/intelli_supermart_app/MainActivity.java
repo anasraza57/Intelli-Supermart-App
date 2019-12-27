@@ -123,7 +123,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
                 Toast.makeText(this, "Login", Toast.LENGTH_LONG).show();
                 break;
             case R.id.nav_my_addresses:
-                Toast.makeText(this, "My Addresses", Toast.LENGTH_LONG).show();
+                intent = new Intent(this, MyAddressesActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_my_orders:
                 Toast.makeText(this, "My Order", Toast.LENGTH_LONG).show();

@@ -11,7 +11,19 @@
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
-        <activity android:name=".MyAddressesActivity"></activity>
+
+        <activity
+            android:name=".VerificationActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".LoginActivity"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".AddAddressActivity"
+            android:parentActivityName=".MyAddressesActivity" />
+        <activity
+            android:name=".MyAddressesActivity"
+            android:parentActivityName=".MainActivity" />
         <activity
             android:name=".TermsActivity"
             android:parentActivityName=".MainActivity" />
