@@ -133,7 +133,7 @@
                                 <PersistentState>
                                   <option name="values">
                                     <map>
-                                      <entry key="url" value="jar:file:/home/anas_raza/Downloads/android-studio-ide-191.5791312-linux/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/content/ic_add_circle_outline_black_24dp.xml" />
+                                      <entry key="url" value="jar:file:/home/anas_raza/Downloads/android-studio-ide-191.5791312-linux/android-studio/plugins/android/lib/android.jar!/images/material_design_icons/device/ic_gps_fixed_black_24dp.xml" />
                                     </map>
                                   </option>
                                 </PersistentState>
@@ -143,7 +143,7 @@
                         </option>
                         <option name="values">
                           <map>
-                            <entry key="outputName" value="ic_add_address" />
+                            <entry key="outputName" value="ic_gps" />
                             <entry key="sourceFile" value="$PROJECT_DIR$/../FYP/order.svg" />
                           </map>
                         </option>

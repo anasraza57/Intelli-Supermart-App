@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -13,103 +14,155 @@
         android:orientation="horizontal">
 
         <RadioButton
+            android:id="@+id/mrRadio"
             android:layout_width="wrap_content"
+            android:textSize="18sp"
             android:layout_height="wrap_content"
             android:text="@string/mr" />
 
         <RadioButton
+            android:id="@+id/mrsRadio"
             android:layout_width="wrap_content"
+            android:textSize="18sp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="20dp"
             android:text="@string/mrs" />
 
         <RadioButton
+            android:id="@+id/missRadio"
             android:layout_width="wrap_content"
+            android:textSize="18sp"
             android:layout_height="wrap_content"
-            android:layout_marginStart="15dp"
+            android:layout_marginStart="20dp"
             android:text="@string/miss" />
     </RadioGroup>
 
-    <EditText
-        android:id="@+id/nameText"
+    <LinearLayout
+        android:layout_marginTop="10dp"
+        android:id="@+id/text_layout"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/radio"
-        android:layout_marginTop="15dp"
-        android:hint="@string/nameHint" />
+        android:orientation="vertical">
 
-    <EditText
-        android:id="@+id/emailText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/nameText"
-        android:hint="@string/emailHint"
-        android:inputType="textEmailAddress" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/nameText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/houseText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/emailText"
-        android:hint="@string/houseHint" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/nameHint"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
 
-    <EditText
-        android:id="@+id/areaText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/houseText"
-        android:hint="@string/areaHint" />
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/emailText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
 
-    <EditText
-        android:id="@+id/cityText"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:layout_below="@+id/areaText"
-        android:hint="@string/cityHint" />
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/emailHint"
+                android:inputType="textEmailAddress" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/houseText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/houseHint"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/areaText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/areaHint"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/cityText"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/cityHint"
+                android:inputType="text" />
+        </com.google.android.material.textfield.TextInputLayout>
+    </LinearLayout>
 
     <TextView
         android:id="@+id/nickname"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/cityText"
+        android:layout_below="@+id/text_layout"
         android:layout_marginTop="10dp"
         android:text="@string/nickname"
         android:textColor="@android:color/black"
-        android:textSize="14sp" />
+        android:textSize="16sp"
+        android:textStyle="bold" />
 
-    <Button
-        android:id="@+id/homeBtn"
-        android:layout_width="wrap_content"
+    <RadioGroup
+        android:id="@+id/radio2"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@id/nickname"
+        android:layout_below="@+id/nickname"
         android:layout_marginTop="15dp"
-        android:text="@string/home" />
+        android:orientation="horizontal">
 
-    <Button
-        android:id="@+id/officeBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nickname"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_toEndOf="@+id/homeBtn"
-        android:text="@string/office" />
+        <RadioButton
+            android:id="@+id/homeRadio"
+            android:layout_width="100dp"
+            android:textSize="20sp"
+            android:layout_height="40dp"
+            android:background="@drawable/custom_button"
+            android:button="@android:color/transparent"
+            android:text="@string/home"
+            android:textAlignment="center" />
 
-    <Button
-        android:id="@+id/otherBtn"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_below="@id/nickname"
-        android:layout_marginStart="15dp"
-        android:layout_marginTop="15dp"
-        android:layout_toEndOf="@+id/officeBtn"
-        android:text="@string/other" />
+        <RadioButton
+            android:id="@+id/officeRadio"
+            android:layout_width="100dp"
+            android:textSize="20sp"
+            android:layout_height="40dp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/custom_button"
+            android:button="@android:color/transparent"
+            android:text="@string/office"
+            android:textAlignment="center" />
+
+        <RadioButton
+            android:id="@+id/otherRadio"
+            android:layout_width="100dp"
+            android:layout_height="40dp"
+            android:textSize="20sp"
+            android:layout_marginStart="15dp"
+            android:background="@drawable/custom_button"
+            android:button="@android:color/transparent"
+            android:text="@string/other"
+            android:textAlignment="center" />
+    </RadioGroup>
 
     <Button
         android:id="@+id/continueBtn"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_below="@+id/homeBtn"
+        android:layout_below="@+id/radio2"
         android:layout_marginTop="15dp"
         android:background="@color/colorAccent"
         android:text="@string/continueBtn"

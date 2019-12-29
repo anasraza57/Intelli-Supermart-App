@@ -247,14 +247,13 @@
     <string name="addButton">Add New Address</string>
     <string name="add_address">Add Address</string>
     <string name="choose_address">Choose Address</string>
-    <string name="others">Others</string>
     <string name="title_activity_main_category">MainCategoryActivity</string>
 
     <string name="logo">logo</string>
     <string name="my_info">My Information</string>
     <string name="mr">Mr.</string>
     <string name="mrs">Mrs.</string>
-    <string name="miss">Miss</string>
+    <string name="miss">Miss.</string>
     <string name="nameHint">Name</string>
     <string name="emailHint">Email</string>
     <string name="houseHint">Flat, House, Office No, Building, Company</string>
@@ -267,4 +266,8 @@
     <string name="other">Other</string>
     <string name="txtLogin">We will send a SMS with a confirmation code to the number.</string>
     <string name="txtVerify">Please enter 4 digit code sent on you number</string>
+    <string name="google_maps_API_key">AIzaSyBVRc10PbthEtGm-8QKWC230NH4Rr-6jr4</string>
+    <string name="searchBarHint">Enter Address, City or Zip Code</string>
+    <string name="selectBtn">Select Location</string>
+    <string name="closeBtn">Close Map</string>
 </resources>
