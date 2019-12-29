@@ -1,7 +1,5 @@
 package com.example.intelli_supermart_app;
 
-import androidx.appcompat.app.AppCompatActivity;
-
 import android.content.Intent;
 import android.os.Bundle;
 import android.os.StrictMode;
@@ -10,6 +8,8 @@ import android.widget.Button;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
+
+import androidx.appcompat.app.AppCompatActivity;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -28,34 +28,31 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        PhoneNo=(EditText)findViewById(R.id.txt_phoneNo);
-        Next=(Button)findViewById(R.id.btn_next);
-        Cross=(ImageView)findViewById(R.id.login_back);
+        PhoneNo = findViewById(R.id.txt_phoneNo);
+        Next = findViewById(R.id.btn_next);
+        Cross = findViewById(R.id.login_back);
 
-        String phoneNo=PhoneNo.getText().toString();
-        if(phoneNo.length()==11){
-            Next.setBackgroundColor(getColor(R.color.colorAccent));
+        String phoneNo = PhoneNo.getText().toString();
+        if (phoneNo.length() == 11) {
+            Next.setBackgroundColor(getColor(R.color.colorPrimaryDark));
         }
 
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
 
-        Next.setOnClickListener(new View.OnClickListener(){
+        Next.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                String phoneNo=PhoneNo.getText().toString();
-                if((phoneNo.isEmpty()) || (phoneNo.length()!= 11))
-                {
-                    if(phoneNo.isEmpty())
+                String phoneNo = PhoneNo.getText().toString();
+                if ((phoneNo.isEmpty()) || (phoneNo.length() != 11)) {
+                    if (phoneNo.isEmpty())
                         PhoneNo.setError("Enter Phone Number");
-                    else if(phoneNo.length()!=11)
+                    else if (phoneNo.length() != 11)
                         PhoneNo.setError("Invalid Phone No");
-                }
-                else
-                {
-                    Next.setBackgroundColor(getColor(R.color.colorAccent));
-                    Random random=new Random();
+                } else {
+                    Next.setBackgroundColor(getColor(R.color.colorPrimaryDark));
+                    Random random = new Random();
                     int randomNo = random.nextInt(9999);
                     try {
                         // Construct data
@@ -80,12 +77,12 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         rd.close();
                         Toast.makeText(getApplicationContext(), "OTP send successfully.", Toast.LENGTH_LONG).show();
-                        Intent intent=new Intent(LoginActivity.this, VerificationActivity.class);
-                        intent.putExtra("RandomNo",randomNo);
+                        Intent intent = new Intent(LoginActivity.this, VerificationActivity.class);
+                        intent.putExtra("RandomNo", randomNo);
                         startActivity(intent);
                         //return stringBuffer.toString();
                     } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), " Error in SMS sending"+e, Toast.LENGTH_LONG).show();
+                        Toast.makeText(getApplicationContext(), " Error in SMS sending" + e, Toast.LENGTH_LONG).show();
                         //System.out.println("Error SMS "+e);
                         //return "Error "+e;
                     }
@@ -94,13 +91,15 @@ public class LoginActivity extends AppCompatActivity {
             }
         });
 
-        Cross.setOnClickListener(new View.OnClickListener(){
+        Cross.setOnClickListener(new View.OnClickListener() {
 
             @Override
             public void onClick(View view) {
-                Intent intent=new Intent(LoginActivity.this, VerificationActivity.class);
+                Intent intent = new Intent(LoginActivity.this, VerificationActivity.class);
                 startActivity(intent);
             }
         });
+
     }
+
 }

@@ -37,6 +37,7 @@ import com.google.android.gms.tasks.Task;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.Objects;
 
 public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyCallback,
         View.OnClickListener {
@@ -63,6 +64,9 @@ public class GoogleMapsActivity extends AppCompatActivity implements OnMapReadyC
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_google_maps);
+        Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.select_location);
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+
         mSearchText = findViewById(R.id.input_search);
         mGps = findViewById(R.id.ic_gps);
         selectButton = findViewById(R.id.selectBtn);

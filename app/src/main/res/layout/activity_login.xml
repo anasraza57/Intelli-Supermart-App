@@ -1,36 +1,41 @@
 <?xml version="1.0" encoding="utf-8"?>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:orientation="vertical">
 
-    <com.google.android.material.appbar.AppBarLayout
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:theme="@style/AppTheme.AppBarOverlay">
+        android:layout_height="?attr/actionBarSize"
+        android:background="@color/colorPrimary"
+        android:elevation="4dp">
 
-        <androidx.appcompat.widget.Toolbar
-            android:id="@+id/toolbar"
+        <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="?attr/actionBarSize"
-            android:background="?attr/colorPrimary"
-            app:popupTheme="@style/AppTheme.PopupOverlay">
+            android:layout_height="wrap_content">
+
             <ImageView
                 android:id="@+id/login_back"
                 android:layout_width="30dp"
-                android:layout_height="?attr/actionBarSize"
+                android:layout_height="150dp"
+                android:layout_alignStart="@id/title_login"
+                android:contentDescription="@string/previous_activity"
                 android:src="@drawable/ic_cancel" />
+
             <TextView
                 android:id="@+id/title_login"
-                android:layout_width="match_parent"
-                android:layout_height="?attr/actionBarSize"
-                android:text="Login"
+                android:layout_width="1000dp"
+                android:layout_height="150dp"
+                android:layout_centerVertical="true"
+                android:text="@string/title_login"
                 android:textAlignment="center"
+                android:textColor="@android:color/white"
                 android:textSize="30sp" />
-        </androidx.appcompat.widget.Toolbar>
-
-    </com.google.android.material.appbar.AppBarLayout>
+        </RelativeLayout>
+    </androidx.appcompat.widget.Toolbar>
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
@@ -41,10 +46,10 @@
             android:id="@+id/txt_login"
             android:layout_width="250dp"
             android:layout_height="80dp"
+            android:gravity="center"
             android:padding="10dp"
-            android:text="@string/txtLogin"
-            android:textAlignment="center"
-            android:textSize="15dp"
+            android:text="@string/txt_login"
+            android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.496"
@@ -56,24 +61,26 @@
             android:id="@+id/txt_phoneNo"
             android:layout_width="wrap_content"
             android:layout_height="50dp"
-            android:hint="Mobile"
-            android:inputType="textFilter|number"
-            android:textAlignment="center"
+            android:autofillHints=""
+            android:gravity="center"
+            android:hint="@string/hint_phone"
+            android:inputType="phone"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toTopOf="parent"
-            app:layout_constraintVertical_bias="0.204" />
+            app:layout_constraintVertical_bias="0.204"
+            tools:targetApi="o" />
 
         <Button
             android:id="@+id/btn_next"
-            android:layout_width="220dp"
+            android:layout_width="390dp"
             android:layout_height="50dp"
-            android:text="Next"
-            android:textAlignment="center"
+            android:gravity="center"
+            android:text="@string/btn_next"
             android:textColor="@android:color/white"
-            android:textSize="20dp"
+            android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
