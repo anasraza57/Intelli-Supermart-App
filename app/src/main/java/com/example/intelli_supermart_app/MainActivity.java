@@ -120,7 +120,8 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         Intent intent = null;
         switch (menuItem.getItemId()) {
             case R.id.nav_login:
-                Toast.makeText(this, "Login", Toast.LENGTH_LONG).show();
+                intent = new Intent(this, LoginActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_my_addresses:
                 intent = new Intent(this, MyAddressesActivity.class);

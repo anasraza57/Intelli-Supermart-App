@@ -1,8 +1,11 @@
 package com.example.intelli_supermart_app;
 
 import android.content.Intent;
+import android.graphics.Color;
 import android.os.Bundle;
 import android.os.StrictMode;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.View;
 import android.widget.Button;
 import android.widget.EditText;
@@ -17,7 +20,7 @@ import java.net.HttpURLConnection;
 import java.net.URL;
 import java.util.Random;
 
-public class LoginActivity extends AppCompatActivity {
+public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText PhoneNo;
     private Button Next;
@@ -28,22 +31,43 @@ public class LoginActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        PhoneNo = findViewById(R.id.txt_phoneNo);
-        Next = findViewById(R.id.btn_next);
-        Cross = findViewById(R.id.login_back);
-
-        String phoneNo = PhoneNo.getText().toString();
-        if (phoneNo.length() == 11) {
-            Next.setBackgroundColor(getColor(R.color.colorPrimaryDark));
-        }
-
+        PhoneNo = (EditText) findViewById(R.id.txt_phoneNo);
+        Next = (Button) findViewById(R.id.btn_next);
+        Cross = (ImageView) findViewById(R.id.login_back);
         StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
         StrictMode.setThreadPolicy(policy);
+        Next.setOnClickListener(this);
+        Cross.setOnClickListener(this);
+        PhoneNo.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
 
-        Next.setOnClickListener(new View.OnClickListener() {
+            }
 
             @Override
-            public void onClick(View view) {
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable ph) {
+                if (ph.toString().length() == 11) {
+                    Next.setBackgroundColor(getColor(R.color.colorAccent));
+                } else if (ph.toString().length() != 11) {
+                    Next.setBackgroundColor(Color.GRAY);
+                }
+            }
+        });
+    }
+
+    @Override
+    public void onClick(View view) {
+        switch (view.getId()) {
+            case R.id.login_back:
+                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                startActivity(intent);
+                break;
+            case R.id.btn_next:
                 String phoneNo = PhoneNo.getText().toString();
                 if ((phoneNo.isEmpty()) || (phoneNo.length() != 11)) {
                     if (phoneNo.isEmpty())
@@ -51,7 +75,6 @@ public class LoginActivity extends AppCompatActivity {
                     else if (phoneNo.length() != 11)
                         PhoneNo.setError("Invalid Phone No");
                 } else {
-                    Next.setBackgroundColor(getColor(R.color.colorPrimaryDark));
                     Random random = new Random();
                     int randomNo = random.nextInt(9999);
                     try {
@@ -77,7 +100,7 @@ public class LoginActivity extends AppCompatActivity {
                         }
                         rd.close();
                         Toast.makeText(getApplicationContext(), "OTP send successfully.", Toast.LENGTH_LONG).show();
-                        Intent intent = new Intent(LoginActivity.this, VerificationActivity.class);
+                        intent = new Intent(LoginActivity.this, VerificationActivity.class);
                         intent.putExtra("RandomNo", randomNo);
                         startActivity(intent);
                         //return stringBuffer.toString();
@@ -88,18 +111,8 @@ public class LoginActivity extends AppCompatActivity {
                     }
 
                 }
-            }
-        });
-
-        Cross.setOnClickListener(new View.OnClickListener() {
-
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(LoginActivity.this, VerificationActivity.class);
-                startActivity(intent);
-            }
-        });
-
+                break;
+        }
     }
 
 }
