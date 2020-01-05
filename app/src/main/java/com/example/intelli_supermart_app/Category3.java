@@ -23,15 +23,15 @@ public class Category3 extends Fragment {
             @NonNull LayoutInflater inflater, ViewGroup container,
             Bundle savedInstanceState) {
         View root = inflater.inflate(R.layout.category3, container, false);
-        recyclerView=root.findViewById(R.id.recycler_products);
+        recyclerView = root.findViewById(R.id.recycler_products);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
-        listProducts=new ArrayList<>();
-        for (int i=0; i<5; i++){
-            listProducts.add(new ProductRecycler("Product "+(i+1),"Rs 100","Product Quantity", R.drawable.sharbat));
+        listProducts = new ArrayList<>();
+        for (int i = 0; i < 5; i++) {
+            listProducts.add(new ProductRecycler("Product " + (i + 1), "Rs 100", "1 Piece", R.drawable.sharbat));
         }
-        adapter=new ProductRecyclerAdapter(listProducts,getActivity());
+        adapter = new ProductRecyclerAdapter(listProducts, getActivity());
         recyclerView.setAdapter(adapter);
 
         return root;

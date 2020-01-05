@@ -5,8 +5,11 @@ import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.Button;
 import android.widget.ImageView;
+import android.widget.RelativeLayout;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -27,19 +30,19 @@ class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter
     @NonNull
     @Override
     public ProductViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
-        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_product,parent,false);
+        View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.cardview_product, parent, false);
         return new ProductViewHolder(v);
     }
 
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, int position) {
-        final ProductRecycler product=listProducts.get(position);
+        final ProductRecycler product = listProducts.get(position);
         holder.product_name.setText(product.getProduct_name());
         holder.product_price.setText(product.getProduct_price());
         holder.product_quantity.setText(product.getProduct_quantity());
         holder.product_image.setImageAlpha(product.getProduct_image());
-        holder.product_name.setOnClickListener(this);
-        holder.product_image.setOnClickListener(this);
+        holder.product_layout.setOnClickListener(this);
+        holder.add_button.setOnClickListener(this);
     }
 
     @Override
@@ -49,31 +52,34 @@ class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()){
-            case R.id.item_image:
-                Intent intent=new Intent(context,ProductActivity.class);
+        switch (view.getId()) {
+            case R.id.product_layout:
+                Intent intent = new Intent(context, ProductActivity.class);
                 context.startActivity(intent);
                 break;
-            case R.id.item_name:
-                intent=new Intent(context,ProductActivity.class);
-                context.startActivity(intent);
+            case R.id.addBtn:
+                Toast.makeText(context, "Item Added", Toast.LENGTH_LONG).show();
                 break;
         }
     }
 
-    public class ProductViewHolder extends RecyclerView.ViewHolder {
+    class ProductViewHolder extends RecyclerView.ViewHolder {
 
-        public TextView product_name;
-        public ImageView product_image;
-        public TextView product_price;
-        public TextView product_quantity;
+        RelativeLayout product_layout;
+        Button add_button;
+        TextView product_name;
+        ImageView product_image;
+        TextView product_price;
+        TextView product_quantity;
 
-        public ProductViewHolder(@NonNull View itemView) {
+        ProductViewHolder(@NonNull View itemView) {
             super(itemView);
-            product_name=(TextView)itemView.findViewById(R.id.item_name);
-            product_image=(ImageView)itemView.findViewById(R.id.item_image);
-            product_price=(TextView)itemView.findViewById(R.id.item_price);
-            product_quantity=(TextView)itemView.findViewById(R.id.item_quantity);
+            product_name = itemView.findViewById(R.id.item_name);
+            product_image = itemView.findViewById(R.id.item_image);
+            product_price = itemView.findViewById(R.id.item_price);
+            product_quantity = itemView.findViewById(R.id.item_quantity);
+            product_layout = itemView.findViewById(R.id.product_layout);
+            add_button = itemView.findViewById(R.id.addBtn);
         }
     }
 }

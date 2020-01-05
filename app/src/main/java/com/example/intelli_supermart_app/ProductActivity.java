@@ -16,8 +16,8 @@ public class ProductActivity extends AppCompatActivity implements View.OnClickLi
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
-        cart=(ImageView)findViewById(R.id.cart);
-        back=(ImageView)findViewById(R.id.back);
+        cart=findViewById(R.id.product_cart);
+        back=findViewById(R.id.back);
         cart.setOnClickListener(this);
         back.setOnClickListener(this);
     }
@@ -25,7 +25,7 @@ public class ProductActivity extends AppCompatActivity implements View.OnClickLi
     @Override
     public void onClick(View view) {
         switch (view.getId()){
-            case R.id.cart:
+            case R.id.product_cart:
                 Intent intent=new Intent(this,CartActivity.class);
                 startActivity(intent);
                 break;

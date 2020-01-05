@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_shadow_end_colour"
+    tools:context=".MainActivity">
+
+    <TextView
+        android:id="@+id/address"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10dp"
+        android:text="@string/delivery_address"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/r1"
+        android:layout_width="match_parent"
+        android:layout_height="80dp"
+        android:layout_below="@+id/address"
+        android:background="@android:color/white">
+
+    </RelativeLayout>
+
+    <TextView
+        android:id="@+id/date"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/r1"
+        android:padding="10dp"
+        android:text="@string/delivery_date_and_time"
+        android:textSize="15sp"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:id="@+id/r2"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/date"
+        android:background="@android:color/white"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:drawableEnd="@drawable/ic_edit"
+            android:gravity="center_vertical"
+            android:text="@string/tomorrow_10_00_am_10_00_pm" />
+
+        <TextView
+            android:id="@+id/view_item"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time"
+            android:drawableEnd="@drawable/ic_down_arrow"
+            android:text="@string/view_4_items"
+            android:textColor="@color/colorAccent" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/layout_payment"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:elevation="20dp"
+        android:gravity="center">
+
+        <TextView
+            android:id="@+id/txt_checkout"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:text="@string/proceed_to_payment"
+            android:textColor="@android:color/white"
+            android:textSize="18sp" />
+
+    </RelativeLayout>
+</RelativeLayout>

@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_shadow_end_colour"
+    tools:context=".PlaceOrderActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:background="@android:color/white"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/amountPay"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="@string/amount_payable"
+            android:textColor="@android:color/black" />
+
+        <TextView
+            android:id="@+id/tax"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="10dp"
+            android:layout_toEndOf="@+id/amountPay"
+            android:text="@string/incl_of_all_taxes" />
+
+        <TextView
+            android:id="@+id/amount"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentEnd="true"
+            android:textColor="@android:color/black"
+            android:text="@string/PKR_250" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/promo"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/rel"
+        android:background="@android:color/white"
+        android:text="@string/promo_code"
+        android:textColor="@color/promo"
+        android:textStyle="bold" />
+
+    <RelativeLayout
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/promo"
+        android:layout_marginTop="10dp">
+
+        <EditText
+            android:id="@+id/cod"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:enabled="false"
+            android:shadowColor="@color/colorPrimaryDark"
+            android:text="@string/cash_on_delivery"
+            android:textAlignment="center"
+            android:textColor="@android:color/black"
+            android:textSize="16sp" />
+
+        <TextView
+            android:id="@+id/cash"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_centerVertical="true"
+            android:gravity="center"
+            android:text="@string/pay_your_cash" />
+
+        <Button
+            android:id="@+id/place"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_alignParentBottom="true"
+            android:background="@color/colorAccent"
+            android:text="@string/place_order"
+            android:textAlignment="gravity"
+            android:textColor="@android:color/white" />
+    </RelativeLayout>
+</RelativeLayout>

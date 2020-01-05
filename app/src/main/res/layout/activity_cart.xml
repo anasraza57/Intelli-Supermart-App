@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
 <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
-    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -9,28 +8,28 @@
     tools:context=".CartActivity">
 
     <RelativeLayout
+        android:id="@+id/layout_charges"
         android:layout_width="match_parent"
         android:layout_height="70dp"
         android:layout_margin="10dp"
-        android:id="@+id/layout_charges"
         android:background="@android:color/white">
 
         <TextView
             android:id="@+id/txt_quantity"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="5dp"
-            android:text="Total products"
+            android:layout_alignParentStart="true"
+            android:layout_marginStart="5dp"
+            android:text="@string/total_products"
             android:textSize="15sp" />
 
         <TextView
             android:id="@+id/total_quantity"
             android:layout_width="wrap_content"
             android:layout_height="20dp"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:text="3"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:text="@string/item_count"
             android:textSize="15sp" />
 
         <TextView
@@ -38,8 +37,8 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_below="@+id/txt_quantity"
-            android:layout_marginLeft="5dp"
-            android:text="Sub total"
+            android:layout_marginStart="5dp"
+            android:text="@string/sub_total"
             android:textSize="15sp" />
 
         <TextView
@@ -47,9 +46,9 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_below="@+id/total_quantity"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:text="Rs 150"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:text="@string/rs_150"
             android:textSize="15sp" />
 
         <TextView
@@ -57,8 +56,8 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_below="@+id/txt_price"
-            android:layout_marginLeft="5dp"
-            android:text="Delivery charges"
+            android:layout_marginStart="5dp"
+            android:text="@string/delivery_charges"
             android:textSize="15sp" />
 
         <TextView
@@ -66,9 +65,9 @@
             android:layout_width="wrap_content"
             android:layout_height="20dp"
             android:layout_below="@+id/total_price"
-            android:layout_alignParentRight="true"
-            android:layout_marginRight="5dp"
-            android:text="Rs 100"
+            android:layout_alignParentEnd="true"
+            android:layout_marginEnd="5dp"
+            android:text="@string/rs_100"
             android:textSize="15sp" />
 
     </RelativeLayout>
@@ -77,15 +76,15 @@
         android:id="@+id/recycler_cart"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:scrollbars="vertical"
         android:layout_below="@+id/layout_charges"
+        android:scrollbars="vertical"
         tools:layout_editor_absoluteX="154dp"
         tools:layout_editor_absoluteY="275dp" />
 
     <RelativeLayout
+        android:id="@+id/layout_checkout"
         android:layout_width="match_parent"
         android:layout_height="50dp"
-        android:id="@+id/layout_checkout"
         android:layout_alignParentBottom="true"
         android:background="@color/colorAccent">
 
@@ -93,30 +92,31 @@
             android:id="@+id/txt_checkout"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_alignParentLeft="true"
-            android:layout_marginLeft="5dp"
-            android:text="Proceed to checkout"
+            android:layout_alignParentStart="true"
             android:layout_centerVertical="true"
+            android:layout_marginStart="5dp"
+            android:text="@string/proceed_to_checkout"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
+
+        <ImageView
+            android:id="@+id/proceed_arrow"
+            android:layout_width="30dp"
+            android:layout_height="30dp"
+            android:layout_alignParentEnd="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_right_arrow_white" />
 
         <TextView
             android:id="@+id/total"
             android:layout_width="wrap_content"
             android:layout_height="30dp"
-            android:layout_toLeftOf="@+id/btn_proceed"
-            android:layout_marginRight="5dp"
-            android:text="Rs 250"
             android:layout_centerVertical="true"
+            android:layout_marginEnd="5dp"
+            android:layout_toStartOf="@+id/proceed_arrow"
+            android:text="@string/rs_250"
             android:textColor="@android:color/white"
             android:textSize="18sp" />
-        <ImageView
-            android:layout_width="30dp"
-            android:layout_height="30dp"
-            android:id="@+id/btn_proceed"
-            android:src="@drawable/ic_next"
-            android:layout_alignParentRight="true"
-            android:layout_centerVertical="true"/>
 
     </RelativeLayout>
 </RelativeLayout>

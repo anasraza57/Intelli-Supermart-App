@@ -30,7 +30,7 @@ public class Category1 extends Fragment {
 
         listProducts = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            listProducts.add(new ProductRecycler("Product " + (i + 1), "Rs 35", "Quantity", R.drawable.pineapple_200ml));
+            listProducts.add(new ProductRecycler("Product " + (i + 1), "Rs 35", "1 Piece", R.drawable.pineapple_200ml));
         }
         adapter = new ProductRecyclerAdapter(listProducts, getActivity());
         recyclerView.setAdapter(adapter);

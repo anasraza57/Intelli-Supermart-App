@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/cardview_shadow_end_colour"
+    android:layout_height="match_parent"
+
+    tools:context=".OrderConfirmedActivity">
+
+    <RelativeLayout
+        android:id="@+id/rel"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@android:color/white"
+        android:padding="10dp">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="50dp"
+            android:layout_height="50dp"
+            android:layout_centerHorizontal="true"
+            android:layout_marginTop="10dp"
+            android:src="@drawable/green_tick_png_icon" />
+
+        <TextView
+            android:id="@+id/txt1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/image"
+            android:layout_marginTop="10dp"
+            android:text="@string/yayyy_order_successfully_placed"
+            android:textAlignment="center"
+            android:textColor="@color/black"
+            android:textSize="18sp"
+            android:textStyle="bold" />
+
+        <TextView
+            android:id="@+id/txt2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@id/txt1"
+            android:layout_marginTop="20dp"
+            android:text="@string/order_id_122333"
+            android:textAlignment="center" />
+
+    </RelativeLayout>
+
+    <RelativeLayout
+        android:id="@+id/rel2"
+        android:background="@android:color/white"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/rel"
+        android:layout_marginTop="20dp"
+        android:padding="10dp">
+
+        <TextView
+            android:id="@+id/schedule"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/schedule_delivery_date_and_time"
+            android:textAlignment="center" />
+
+        <TextView
+            android:id="@+id/time"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:layout_below="@+id/schedule"
+            android:layout_marginTop="30dp"
+            android:foregroundTint="#00D5BBBB"
+            android:gravity="center_vertical"
+            android:text="@string/tomorrow_10_00_am_10_00_pm"
+            android:textColor="@color/black"
+            android:textSize="15sp" />
+
+        <TextView
+            android:id="@+id/point1"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time"
+            android:layout_marginTop="40dp"
+            android:text="@string/store_price_guarantee" />
+
+        <TextView
+            android:id="@+id/point2"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/time"
+            android:layout_marginTop="60dp"
+            android:text="@string/_100_money_back_guarantee_terms_and_conditions_apply" />
+    </RelativeLayout>
+
+    <Button
+        android:id="@+id/continue_shopping"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:background="@color/colorAccent"
+        android:text="@string/continue_shopping"
+        android:textAlignment="gravity"
+        android:textColor="@android:color/white" />
+</RelativeLayout>

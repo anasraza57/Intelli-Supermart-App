@@ -1,69 +1,92 @@
 <?xml version="1.0" encoding="utf-8"?>
-<androidx.cardview.widget.CardView
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
-    android:orientation="vertical"
     android:layout_width="match_parent"
-    android:layout_height="200dp"
-    app:cardElevation="4dp"
-    android:layout_marginBottom="8dp">
+    android:layout_height="170dp"
+    android:layout_marginBottom="8dp"
+    android:orientation="vertical"
+    app:cardElevation="4dp">
 
     <RelativeLayout
+        android:id="@+id/product_layout"
         android:layout_width="match_parent"
         android:layout_height="match_parent">
 
         <ImageView
             android:id="@+id/item_image"
-            android:layout_width="158dp"
-            android:layout_height="141dp"
+            android:layout_width="140dp"
+            android:layout_height="match_parent"
             android:layout_alignParentStart="true"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="30dp"
             android:layout_marginTop="15dp"
             android:scaleType="centerCrop"
             android:src="@drawable/pineapple_200ml" />
 
         <TextView
             android:id="@+id/item_name"
-            android:layout_width="176dp"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:layout_alignParentTop="true"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="27dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="15dp"
             android:layout_toEndOf="@+id/item_image"
-            android:background="#B4F44336"
-            android:gravity="center"
-            android:text="Name of Item"
-            android:textColor="@android:color/white"
+            android:drawableEnd="@drawable/ic_right_arrow_orange"
+            android:text="@string/name_of_item"
             android:textSize="20sp" />
 
         <TextView
             android:id="@+id/item_quantity"
-            android:layout_width="176dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/item_name"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="0dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/item_image"
-            android:background="#B4F44336"
             android:gravity="center"
-            android:text="Quantity of Item"
-            android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:text="@string/_1_piece"
+            android:textColor="@color/promo"
+            android:textSize="15sp" />
 
         <TextView
             android:id="@+id/item_price"
-            android:layout_width="176dp"
+            android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:layout_below="@+id/item_quantity"
-            android:layout_marginStart="20dp"
-            android:layout_marginTop="30dp"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
             android:layout_toEndOf="@+id/item_image"
-            android:background="#B4F44336"
             android:gravity="center"
-            android:text="Price of Item"
+            android:text="@string/price_of_item"
+            android:textColor="@android:color/black"
+            android:textSize="14sp" />
+
+        <TextView
+            android:id="@+id/item_delivery"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/item_price"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/item_image"
+            android:drawableStart="@drawable/ic_motorcycle"
+            android:drawablePadding="5dp"
+            android:gravity="center"
+            android:text="@string/same_day_delivery"
+            android:textColor="@android:color/black"
+            android:textSize="13sp" />
+
+        <Button
+            android:id="@+id/addBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="30dp"
+            android:layout_alignTop="@+id/item_price"
+            android:layout_alignParentEnd="true"
+            android:background="@color/colorAccent"
+            android:layout_marginEnd="15dp"
+            android:text="@string/add"
             android:textColor="@android:color/white"
-            android:textSize="20sp" />
+            android:textSize="18sp" />
 
     </RelativeLayout>
 

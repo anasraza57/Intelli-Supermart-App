@@ -1,9 +1,9 @@
 package com.example.intelli_supermart_app;
 
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
-import android.widget.ImageView;
-import android.widget.Toast;
+import android.widget.RelativeLayout;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
@@ -18,7 +18,7 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
     private RecyclerView recyclerView;
     private CartRecyclerAdapter adapter;
     private List<CartRecycler> listProducts;
-    public ImageView proceed;
+    public RelativeLayout proceedButton;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -37,16 +37,13 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         adapter=new CartRecyclerAdapter(listProducts,this);
         recyclerView.setAdapter(adapter);
 
-        proceed=(ImageView)findViewById(R.id.btn_proceed);
-        proceed.setOnClickListener(this);
+        proceedButton=findViewById(R.id.layout_checkout);
+        proceedButton.setOnClickListener(this);
     }
 
     @Override
     public void onClick(View view) {
-        switch (view.getId()) {
-            case R.id.btn_proceed:
-                Toast.makeText(this,"Checkout", Toast.LENGTH_LONG).show();
-                break;
-        }
+        Intent intent = new Intent(this, AddressAndTimeActivity.class);
+        startActivity(intent);
     }
 }

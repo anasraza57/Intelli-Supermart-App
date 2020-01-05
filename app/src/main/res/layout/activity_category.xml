@@ -15,7 +15,8 @@
 
         <RelativeLayout
             android:layout_width="match_parent"
-            android:layout_height="70dp">
+            android:layout_height="70dp"
+            android:gravity="center_vertical">
 
 
             <ImageView
@@ -24,16 +25,16 @@
                 android:layout_height="140dp"
                 android:layout_alignStart="@+id/title_product_category"
                 android:layout_centerVertical="true"
-                android:src="@drawable/ic_back"
-                android:contentDescription="@string/previous_activity" />
+                android:contentDescription="@string/previous_activity"
+                android:src="@drawable/ic_left_arrow" />
 
             <TextView
                 android:id="@+id/title_product_category"
                 android:layout_width="282dp"
                 android:layout_height="wrap_content"
+                android:layout_centerVertical="true"
                 android:text="@string/title_category"
                 android:textAlignment="center"
-                android:layout_centerVertical="true"
                 android:textColor="@android:color/white"
                 android:textSize="20sp" />
 
@@ -41,9 +42,10 @@
                 android:id="@+id/product_search"
                 android:layout_width="30dp"
                 android:layout_height="140dp"
+                android:layout_marginEnd="10dp"
                 android:layout_toStartOf="@+id/product_cart"
-                android:src="@drawable/ic_search"
-                android:contentDescription="@string/product_search" />
+                android:contentDescription="@string/product_search"
+                android:src="@drawable/ic_search_white" />
 
             <ImageView
                 android:id="@+id/product_cart"
@@ -52,8 +54,9 @@
                 android:layout_alignParentTop="true"
                 android:layout_alignParentEnd="true"
                 android:layout_marginTop="0dp"
-                android:src="@drawable/ic_cart"
-                android:contentDescription="@string/view_cart"/>
+                android:layout_marginEnd="10dp"
+                android:contentDescription="@string/view_cart"
+                android:src="@drawable/ic_cart" />
 
         </RelativeLayout>
 
