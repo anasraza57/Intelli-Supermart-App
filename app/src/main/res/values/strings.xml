@@ -279,4 +279,16 @@
     <string name="hint_mobile">Mobile</string>
     <string name="hint_code">0000</string>
     <string name="others">Others</string>
+    <string name="title_activity_category">CategoryActivity</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+
+    <string name="tab_text_3">Tab 3</string>
+    <string name="product_search">Search for product</string>
+    <string name="view_cart">View cart</string>
+    <string name="title_category">Juices and Concentrates</string>
+    <string name="same_day_delivery">Same day delivery</string>
+    <string name="txt_delivered">Delivered by Intelli Supermart</string>
+    <string name="product_image">Product Image</string>
+    <string name="product_rate">*4.5</string>
 </resources>
