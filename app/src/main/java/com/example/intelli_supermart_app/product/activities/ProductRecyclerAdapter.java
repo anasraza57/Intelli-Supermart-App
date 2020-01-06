@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.product.activities;
 
 import android.content.Context;
 import android.content.Intent;
@@ -14,15 +14,17 @@ import android.widget.Toast;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.intelli_supermart_app.R;
+
 import java.util.List;
 
 class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter.ProductViewHolder>
         implements View.OnClickListener {
 
-    private List<ProductRecycler> listProducts;
+    private List<Product> listProducts;
     private Context context;
 
-    public ProductRecyclerAdapter(List<ProductRecycler> listProducts, Context context) {
+    public ProductRecyclerAdapter(List<Product> listProducts, Context context) {
         this.listProducts = listProducts;
         this.context = context;
     }
@@ -36,7 +38,7 @@ class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter
 
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, int position) {
-        final ProductRecycler product = listProducts.get(position);
+        final Product product = listProducts.get(position);
         holder.product_name.setText(product.getProduct_name());
         holder.product_price.setText(product.getProduct_price());
         holder.product_quantity.setText(product.getProduct_quantity());
@@ -54,7 +56,7 @@ class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.product_layout:
-                Intent intent = new Intent(context, ProductActivity.class);
+                Intent intent = new Intent(context, ProductDetailsActivity.class);
                 context.startActivity(intent);
                 break;
             case R.id.addBtn:

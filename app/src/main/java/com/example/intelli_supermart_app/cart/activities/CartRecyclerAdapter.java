@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.cart.activities;
 
 import android.content.Context;
 import android.view.LayoutInflater;
@@ -10,6 +10,8 @@ import android.widget.Toast;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.intelli_supermart_app.R;
 
 import java.util.List;
 

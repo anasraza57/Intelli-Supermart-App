@@ -8,6 +8,8 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.intelli_supermart_app.cart.activities.CartActivity;
+
 import java.util.Objects;
 
 public class AddressAndTimeActivity extends AppCompatActivity implements View.OnClickListener {
@@ -31,14 +33,16 @@ public class AddressAndTimeActivity extends AppCompatActivity implements View.On
 
     @Override
     public void onClick(View v) {
-        Intent intent;
+        Intent intent = null;
         switch (v.getId()) {
             case R.id.layout_payment:
                 intent = new Intent(this, PlaceOrderActivity.class);
                 startActivity(intent);
+                break;
             case R.id.view_item:
                 intent = new Intent(this, CartActivity.class);
                 startActivity(intent);
+                break;
         }
     }
 }

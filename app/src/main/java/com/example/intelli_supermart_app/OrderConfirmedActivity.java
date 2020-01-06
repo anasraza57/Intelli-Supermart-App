@@ -7,6 +7,8 @@ import android.widget.Button;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.intelli_supermart_app.category.activities.MainCategoryActivity;
+
 import java.util.Objects;
 
 public class OrderConfirmedActivity extends AppCompatActivity {
@@ -24,7 +26,7 @@ public class OrderConfirmedActivity extends AppCompatActivity {
         continueButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                Intent intent = new Intent(OrderConfirmedActivity.this, MainActivity.class);
+                Intent intent = new Intent(OrderConfirmedActivity.this, MainCategoryActivity.class);
                 startActivity(intent);
             }
         });

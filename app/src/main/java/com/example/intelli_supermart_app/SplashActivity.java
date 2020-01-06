@@ -8,6 +8,8 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.intelli_supermart_app.category.activities.MainCategoryActivity;
+
 public class SplashActivity extends AppCompatActivity {
 
     private ImageView iv;
@@ -20,7 +22,7 @@ public class SplashActivity extends AppCompatActivity {
         iv = findViewById(R.id.logo);
         Animation myanim = AnimationUtils.loadAnimation(this, R.anim.mytransition);
         iv.startAnimation(myanim);
-        final Intent intent = new Intent(this, MainActivity.class);
+        final Intent intent = new Intent(this, MainCategoryActivity.class);
         Thread timer = new Thread() {
             public void run() {
                 try {

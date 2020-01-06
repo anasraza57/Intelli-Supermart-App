@@ -4,7 +4,7 @@
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="@color/cardview_shadow_end_colour"
-    tools:context=".MainActivity">
+    tools:context=".category.activities.MainCategoryActivity">
 
     <TextView
         android:id="@+id/address"

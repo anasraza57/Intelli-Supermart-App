@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.login.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -12,6 +12,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.intelli_supermart_app.category.activities.MainCategoryActivity;
+import com.example.intelli_supermart_app.R;
 
 public class VerificationActivity extends AppCompatActivity implements View.OnClickListener{
 
@@ -69,7 +72,7 @@ public class VerificationActivity extends AppCompatActivity implements View.OnCl
                     Verify.setBackgroundColor(getColor(R.color.colorAccent));
                     String RandomNo = getIntent().getStringExtra("RandomNo");
                     if (RandomNo.equals(Code)) {
-                        intent = new Intent(VerificationActivity.this, MainActivity.class);
+                        intent = new Intent(VerificationActivity.this, MainCategoryActivity.class);
                         startActivity(intent);
                     } else {
                         Toast.makeText(getApplicationContext(), " Invalid code", Toast.LENGTH_LONG).show();

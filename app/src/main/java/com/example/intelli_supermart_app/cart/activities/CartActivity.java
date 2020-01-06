@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.cart.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,6 +8,9 @@ import android.widget.RelativeLayout;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
+
+import com.example.intelli_supermart_app.AddressAndTimeActivity;
+import com.example.intelli_supermart_app.R;
 
 import java.util.ArrayList;
 import java.util.List;

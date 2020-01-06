@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.category.activities;
 
 import android.content.Context;
 import android.view.View;

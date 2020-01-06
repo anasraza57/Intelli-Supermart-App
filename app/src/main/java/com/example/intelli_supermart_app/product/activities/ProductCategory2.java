@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.product.activities;
 
 import android.os.Bundle;
 import android.view.LayoutInflater;
@@ -10,13 +10,15 @@ import androidx.fragment.app.Fragment;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.intelli_supermart_app.R;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Category2 extends Fragment {
+public class ProductCategory2 extends Fragment {
     private RecyclerView recyclerView;
     private ProductRecyclerAdapter adapter;
-    private List<ProductRecycler> listProducts;
+    private List<Product> listProducts;
 
     @Override
     public View onCreateView(
@@ -29,7 +31,7 @@ public class Category2 extends Fragment {
 
         listProducts = new ArrayList<>();
         for (int i = 0; i < 2; i++) {
-            listProducts.add(new ProductRecycler("Product " + (i + 1), "Rs 150", "1 Piece", R.drawable.honey));
+            listProducts.add(new Product("Product " + (i + 1), "Rs 150", "1 Piece", R.drawable.honey));
         }
         adapter = new ProductRecyclerAdapter(listProducts, getActivity());
         recyclerView.setAdapter(adapter);

@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.login.activities;
 
 import android.content.Intent;
 import android.graphics.Color;
@@ -13,6 +13,9 @@ import android.widget.ImageView;
 import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
+
+import com.example.intelli_supermart_app.category.activities.MainCategoryActivity;
+import com.example.intelli_supermart_app.R;
 
 import java.io.BufferedReader;
 import java.io.InputStreamReader;
@@ -64,7 +67,7 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.login_back:
-                Intent intent = new Intent(LoginActivity.this, MainActivity.class);
+                Intent intent = new Intent(LoginActivity.this, MainCategoryActivity.class);
                 startActivity(intent);
                 break;
             case R.id.btn_next:

@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.cart.activities;
 
 class CartRecycler {
     private String product_name;

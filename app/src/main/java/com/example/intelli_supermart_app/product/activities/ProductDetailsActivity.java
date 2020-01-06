@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.product.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -7,7 +7,10 @@ import android.widget.ImageView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-public class ProductActivity extends AppCompatActivity implements View.OnClickListener {
+import com.example.intelli_supermart_app.R;
+import com.example.intelli_supermart_app.cart.activities.CartActivity;
+
+public class ProductDetailsActivity extends AppCompatActivity implements View.OnClickListener {
 
     public ImageView cart;
     public ImageView back;
@@ -26,11 +29,11 @@ public class ProductActivity extends AppCompatActivity implements View.OnClickLi
     public void onClick(View view) {
         switch (view.getId()){
             case R.id.product_cart:
-                Intent intent=new Intent(this,CartActivity.class);
+                Intent intent=new Intent(this, CartActivity.class);
                 startActivity(intent);
                 break;
             case R.id.back:
-                intent=new Intent(this,CategoryActivity.class);
+                intent=new Intent(this, ProductActivity.class);
                 startActivity(intent);
                 break;
         }

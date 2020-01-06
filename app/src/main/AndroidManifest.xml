@@ -20,23 +20,23 @@
         <activity android:name=".OrderConfirmedActivity"></activity>
         <activity
             android:name=".PlaceOrderActivity"
-            android:parentActivityName=".CartActivity" />
+            android:parentActivityName=".cart.activities.CartActivity" />
         <activity
             android:name=".AddressAndTimeActivity"
-            android:parentActivityName=".CartActivity" />
+            android:parentActivityName=".cart.activities.CartActivity" />
         <activity
-            android:name=".ProductActivity"
+            android:name=".product.activities.ProductDetailsActivity"
             android:theme="@style/AppTheme.NoActionBar" />
-        <activity android:name=".Category3" />
-        <activity android:name=".Category2" />
-        <activity android:name=".Category1" />
+        <activity android:name=".product.activities.ProductCategory3" />
+        <activity android:name=".product.activities.ProductCategory2" />
+        <activity android:name=".product.activities.ProductCategory1" />
         <activity
-            android:name=".CategoryActivity"
+            android:name=".product.activities.ProductActivity"
             android:label="@string/title_activity_category"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".CartActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".cart.activities.CartActivity"
+            android:parentActivityName=".category.activities.MainCategoryActivity" />
 
         <meta-data
             android:name="com.google.android.gms.version"
@@ -46,38 +46,38 @@
             android:value="@string/google_maps_API_key" />
 
         <activity
-            android:name=".GoogleMapsActivity"
-            android:parentActivityName=".AddAddressActivity"
+            android:name=".drawer.activities.GoogleMapsActivity"
+            android:parentActivityName=".drawer.activities.AddAddressActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".VerificationActivity"
+            android:name=".login.activities.VerificationActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".LoginActivity"
+            android:name=".login.activities.LoginActivity"
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".AddAddressActivity"
-            android:parentActivityName=".MyAddressesActivity" />
+            android:name=".drawer.activities.AddAddressActivity"
+            android:parentActivityName=".drawer.activities.MyAddressesActivity" />
         <activity
-            android:name=".MyAddressesActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".drawer.activities.MyAddressesActivity"
+            android:parentActivityName=".category.activities.MainCategoryActivity" />
         <activity
-            android:name=".TermsActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".drawer.activities.TermsActivity"
+            android:parentActivityName=".category.activities.MainCategoryActivity" />
         <activity
-            android:name=".PolicyActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".drawer.activities.PolicyActivity"
+            android:parentActivityName=".category.activities.MainCategoryActivity" />
         <activity
-            android:name=".HelpActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".drawer.activities.HelpActivity"
+            android:parentActivityName=".category.activities.MainCategoryActivity" />
         <activity
-            android:name=".ContactActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".drawer.activities.ContactActivity"
+            android:parentActivityName=".category.activities.MainCategoryActivity" />
         <activity
-            android:name=".AboutActivity"
-            android:parentActivityName=".MainActivity" />
+            android:name=".drawer.activities.AboutActivity"
+            android:parentActivityName=".category.activities.MainCategoryActivity" />
         <activity
-            android:name=".MainActivity"
+            android:name=".category.activities.MainCategoryActivity"
             android:label="@string/title_activity_main"
             android:theme="@style/AppTheme.NoActionBar1" />
         <activity

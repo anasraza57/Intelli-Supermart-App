@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.category.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -18,13 +18,23 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.intelli_supermart_app.Item;
+import com.example.intelli_supermart_app.R;
+import com.example.intelli_supermart_app.product.activities.ProductActivity;
+import com.example.intelli_supermart_app.drawer.activities.AboutActivity;
+import com.example.intelli_supermart_app.drawer.activities.ContactActivity;
+import com.example.intelli_supermart_app.drawer.activities.HelpActivity;
+import com.example.intelli_supermart_app.drawer.activities.MyAddressesActivity;
+import com.example.intelli_supermart_app.drawer.activities.PolicyActivity;
+import com.example.intelli_supermart_app.drawer.activities.TermsActivity;
+import com.example.intelli_supermart_app.login.activities.LoginActivity;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainCategoryActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
     DrawerLayout drawer;
     Toolbar toolbar;
     NavigationView navigationView;
@@ -48,7 +58,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                startActivity(new Intent(getApplicationContext(),MainActivity.class));
+                startActivity(new Intent(getApplicationContext(), MainCategoryActivity.class));
                 finish();
             }
         });
@@ -57,7 +67,7 @@ public class MainActivity extends AppCompatActivity implements NavigationView.On
         fab.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), CategoryActivity.class);
+                Intent intent = new Intent(getApplicationContext(), ProductActivity.class);
                 startActivity(intent);
             }
         });

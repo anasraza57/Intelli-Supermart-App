@@ -8,9 +8,9 @@ import androidx.fragment.app.Fragment;
 import androidx.fragment.app.FragmentManager;
 import androidx.fragment.app.FragmentPagerAdapter;
 
-import com.example.intelli_supermart_app.Category1;
-import com.example.intelli_supermart_app.Category2;
-import com.example.intelli_supermart_app.Category3;
+import com.example.intelli_supermart_app.product.activities.ProductCategory1;
+import com.example.intelli_supermart_app.product.activities.ProductCategory2;
+import com.example.intelli_supermart_app.product.activities.ProductCategory3;
 import com.example.intelli_supermart_app.R;
 
 /**
@@ -32,13 +32,13 @@ public class SectionsPagerAdapter extends FragmentPagerAdapter {
     public Fragment getItem(int position) {
         switch (position){
             case 0:
-                Category1 Tab1=new Category1();
+                ProductCategory1 Tab1=new ProductCategory1();
                 return Tab1;
             case 1:
-                Category2 Tab2=new Category2();
+                ProductCategory2 Tab2=new ProductCategory2();
                 return Tab2;
             case 2:
-                Category3 Tab3= new Category3();
+                ProductCategory3 Tab3= new ProductCategory3();
                 return Tab3;
             default:
                 return null;

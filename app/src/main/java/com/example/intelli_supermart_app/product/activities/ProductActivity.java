@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.product.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -8,10 +8,13 @@ import android.widget.ImageView;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.intelli_supermart_app.category.activities.MainCategoryActivity;
+import com.example.intelli_supermart_app.R;
+import com.example.intelli_supermart_app.cart.activities.CartActivity;
 import com.example.intelli_supermart_app.ui.main.SectionsPagerAdapter;
 import com.google.android.material.tabs.TabLayout;
 
-public class CategoryActivity extends AppCompatActivity implements View.OnClickListener {
+public class ProductActivity extends AppCompatActivity implements View.OnClickListener {
 
     public ImageView cart;
     public ImageView back;
@@ -40,7 +43,7 @@ public class CategoryActivity extends AppCompatActivity implements View.OnClickL
                 startActivity(intent);
                 break;
             case R.id.product_back:
-                intent = new Intent(this, MainActivity.class);
+                intent = new Intent(this, MainCategoryActivity.class);
                 startActivity(intent);
                 break;
         }

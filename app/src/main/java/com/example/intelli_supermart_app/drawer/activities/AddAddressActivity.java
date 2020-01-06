@@ -1,4 +1,4 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.drawer.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -11,6 +11,8 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import com.example.intelli_supermart_app.Customer;
+import com.example.intelli_supermart_app.R;
 import com.google.android.material.textfield.TextInputLayout;
 
 import java.util.Objects;
@@ -38,15 +40,6 @@ public class AddAddressActivity extends AppCompatActivity implements View.OnClic
         Objects.requireNonNull(getSupportActionBar()).setTitle(R.string.add_address);
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        intent = getIntent();
-        if (intent.hasExtra("address")) {
-            address = intent.getStringArrayExtra("address");
-
-            Log.d(TAG, "onCreate: address:" + address);
-            Toast.makeText(this, address[0], Toast.LENGTH_SHORT).show();
-            init();
-        }
-
         homeRadioButton = findViewById(R.id.homeRadio);
         officeRadioButton = findViewById(R.id.officeRadio);
         otherRadioButton = findViewById(R.id.otherRadio);
@@ -64,6 +57,15 @@ public class AddAddressActivity extends AppCompatActivity implements View.OnClic
         nicknameGroup.clearCheck();
 
         continueButton = findViewById(R.id.continueBtn);
+
+        intent = getIntent();
+        if (intent.hasExtra("address")) {
+            address = intent.getStringArrayExtra("address");
+
+            Log.d(TAG, "onCreate: address:" + address);
+            Toast.makeText(this, address[0], Toast.LENGTH_SHORT).show();
+            init();
+        }
 
         titleGroup.setOnCheckedChangeListener(this);
         titleGroup.check(R.id.mrRadio);
@@ -117,7 +119,7 @@ public class AddAddressActivity extends AppCompatActivity implements View.OnClic
     private boolean validateHome() {
         home = homeText.getEditText().getText().toString().trim();
 
-        if (email.isEmpty()) {
+        if (home.isEmpty()) {
             homeText.getEditText().setError("Field can't be empty");
             return false;
         } else {

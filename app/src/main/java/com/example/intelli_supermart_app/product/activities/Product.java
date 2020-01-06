@@ -1,12 +1,12 @@
-package com.example.intelli_supermart_app;
+package com.example.intelli_supermart_app.product.activities;
 
-class ProductRecycler {
+class Product {
     private String product_name;
     private String product_price;
     private String product_quantity;
     private int product_image;
 
-    ProductRecycler(String product_name, String product_price, String product_quantity, int product_image) {
+    Product(String product_name, String product_price, String product_quantity, int product_image) {
         this.product_name = product_name;
         this.product_price = product_price;
         this.product_quantity = product_quantity;
