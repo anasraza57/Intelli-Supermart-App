@@ -1,13 +1,13 @@
 package com.example.intelli_supermart_app.cart.activities;
 
-class CartRecycler {
+class Cart {
     private String product_name;
     private String product_price;
     private String product_description;
     private int product_image;
     private int product_remove;
 
-    CartRecycler(String product_name, String product_price, String product_description, int product_image, int product_remove) {
+    Cart(String product_name, String product_price, String product_description, int product_image, int product_remove) {
         this.product_name = product_name;
         this.product_price = product_price;
         this.product_description = product_description;

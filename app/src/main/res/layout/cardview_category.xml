@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="120dp"
+    android:layout_marginBottom="8dp"
+    android:orientation="vertical"
+    app:cardElevation="4dp">
+
+    <RelativeLayout
+        android:id="@+id/upperLayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="110dp"
+            android:layout_height="match_parent"
+            android:layout_alignParentStart="true"
+            android:layout_alignParentTop="true"
+            android:layout_marginTop="15dp"
+            android:scaleType="centerCrop"
+            android:src="@drawable/pineapple_200ml" />
+
+        <TextView
+            android:id="@+id/category_name"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentTop="true"
+            android:layout_toStartOf="@+id/button"
+            android:layout_marginStart="10dp"
+            android:layout_marginTop="20dp"
+            android:layout_toEndOf="@+id/image"
+            android:text="@string/name_of_item"
+            android:textSize="20sp" />
+
+        <TextView
+            android:id="@+id/category_description"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/category_name"
+            android:layout_marginStart="10dp"
+            android:layout_toStartOf="@+id/button"
+            android:layout_marginTop="10dp"
+            android:layout_toEndOf="@+id/image"
+            android:gravity="start"
+            android:text="@string/_1_piece"
+            android:textColor="@color/colorGrey"
+            android:textSize="15sp" />
+
+        <RelativeLayout
+            android:id="@+id/button"
+            android:layout_width="40dp"
+            android:layout_height="40dp"
+            android:layout_alignTop="@+id/category_name"
+            android:layout_alignParentEnd="true"
+            android:gravity="center">
+
+            <View
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:background="@drawable/ic_right_arrow_blue" />
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+<!--    <LinearLayout-->
+<!--        android:id="@+id/expandableLayout"-->
+<!--        android:layout_width="match_parent"-->
+<!--        android:layout_height="wrap_content"-->
+<!--        android:layout_below="@+id/upperLayout">-->
+<!--        <GridView-->
+<!--            android:id="@+id/gridLayout"-->
+<!--            android:layout_width="match_parent"-->
+<!--            android:layout_height="match_parent"-->
+<!--            android:numColumns="auto_fit"-->
+<!--            android:verticalSpacing="10dp" />-->
+<!--    </LinearLayout>-->
+
+</androidx.cardview.widget.CardView>

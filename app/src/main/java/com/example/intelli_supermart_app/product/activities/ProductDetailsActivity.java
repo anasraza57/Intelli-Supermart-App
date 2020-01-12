@@ -18,9 +18,9 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_product);
+        setContentView(R.layout.activity_product_details);
         cart=findViewById(R.id.product_cart);
-        back=findViewById(R.id.back);
+        back=findViewById(R.id.product_back);
         cart.setOnClickListener(this);
         back.setOnClickListener(this);
     }
@@ -32,7 +32,7 @@ public class ProductDetailsActivity extends AppCompatActivity implements View.On
                 Intent intent=new Intent(this, CartActivity.class);
                 startActivity(intent);
                 break;
-            case R.id.back:
+            case R.id.product_back:
                 intent=new Intent(this, ProductActivity.class);
                 startActivity(intent);
                 break;

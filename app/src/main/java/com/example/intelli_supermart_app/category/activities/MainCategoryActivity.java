@@ -2,7 +2,6 @@ package com.example.intelli_supermart_app.category.activities;
 
 import android.content.Intent;
 import android.os.Bundle;
-import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.ImageView;
@@ -20,7 +19,7 @@ import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.intelli_supermart_app.Item;
 import com.example.intelli_supermart_app.R;
-import com.example.intelli_supermart_app.product.activities.ProductActivity;
+import com.example.intelli_supermart_app.cart.activities.CartActivity;
 import com.example.intelli_supermart_app.drawer.activities.AboutActivity;
 import com.example.intelli_supermart_app.drawer.activities.ContactActivity;
 import com.example.intelli_supermart_app.drawer.activities.HelpActivity;
@@ -28,7 +27,6 @@ import com.example.intelli_supermart_app.drawer.activities.MyAddressesActivity;
 import com.example.intelli_supermart_app.drawer.activities.PolicyActivity;
 import com.example.intelli_supermart_app.drawer.activities.TermsActivity;
 import com.example.intelli_supermart_app.login.activities.LoginActivity;
-import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.android.material.navigation.NavigationView;
 
 import java.util.ArrayList;
@@ -46,13 +44,13 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
     List<Item> items;
     int[] gridImages = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
 
+    ImageView cartImageView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         toolbar = findViewById(R.id.toolbar);
-        toolbar.setLogo(R.drawable.logo);
         setSupportActionBar(toolbar);
 
         toolbar.setNavigationOnClickListener(new View.OnClickListener() {
@@ -63,14 +61,23 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
             }
         });
 
-        FloatingActionButton fab = findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        cartImageView = findViewById(R.id.cart);
+        cartImageView.setOnClickListener(new View.OnClickListener() {
             @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getApplicationContext(), ProductActivity.class);
+            public void onClick(View v) {
+                Intent intent = new Intent(getApplicationContext(), CartActivity.class);
                 startActivity(intent);
             }
         });
+
+//        FloatingActionButton fab = findViewById(R.id.fab);
+//        fab.setOnClickListener(new View.OnClickListener() {
+//            @Override
+//            public void onClick(View view) {
+//                Intent intent = new Intent(getApplicationContext(), ProductActivity.class);
+//                startActivity(intent);
+//            }
+//        });
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -101,15 +108,9 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
     private void initData() {
         items = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            Item item = new Item("This is item " + (i + 1), "This is a child item" + (i + 1));
+            Item item = new Item("This is category " + (i + 1), "Description" + (i + 1));
             items.add(item);
         }
-    }
-
-    @Override
-    public boolean onCreateOptionsMenu(Menu menu) {
-        getMenuInflater().inflate(R.menu.main, menu);
-        return true;
     }
 
     public void flipperImages(int image) {
@@ -140,7 +141,8 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
                 Toast.makeText(this, "My Order", Toast.LENGTH_LONG).show();
                 break;
             case R.id.nav_my_cart:
-                Toast.makeText(this, "Cart", Toast.LENGTH_LONG).show();
+                intent = new Intent(this, CartActivity.class);
+                startActivity(intent);
                 break;
             case R.id.nav_help:
                 intent = new Intent(this, HelpActivity.class);

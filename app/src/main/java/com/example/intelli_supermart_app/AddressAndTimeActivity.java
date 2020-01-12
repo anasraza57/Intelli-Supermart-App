@@ -8,7 +8,7 @@ import android.widget.TextView;
 
 import androidx.appcompat.app.AppCompatActivity;
 
-import com.example.intelli_supermart_app.cart.activities.CartActivity;
+import com.example.intelli_supermart_app.cart.activities.CartViewActivity;
 
 import java.util.Objects;
 
@@ -40,7 +40,7 @@ public class AddressAndTimeActivity extends AppCompatActivity implements View.On
                 startActivity(intent);
                 break;
             case R.id.view_item:
-                intent = new Intent(this, CartActivity.class);
+                intent = new Intent(this, CartViewActivity.class);
                 startActivity(intent);
                 break;
         }

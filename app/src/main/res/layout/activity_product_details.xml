@@ -1,0 +1,180 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="@color/cardview_shadow_end_colour"
+    tools:context=".product.activities.ProductDetailsActivity">
+
+    <com.google.android.material.appbar.AppBarLayout
+        android:id="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/colorPrimary"
+        android:theme="@style/AppTheme.AppBarOverlay">
+
+        <androidx.appcompat.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="?attr/actionBarSize"
+            android:background="?attr/colorPrimary"
+            app:layout_collapseMode="pin"
+            app:popupTheme="@style/ThemeOverlay.AppCompat.Light">
+
+            <RelativeLayout
+                android:layout_width="match_parent"
+                android:layout_height="match_parent">
+
+                <ImageView
+                    android:id="@+id/product_back"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:contentDescription="@string/previous_activity"
+                    android:src="@drawable/ic_left_arrow" />
+
+                <TextView
+                    android:id="@+id/title_product_category"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_toEndOf="@+id/product_back"
+                    android:gravity="center_vertical"
+                    android:text="@string/nestle_fruita_vitals_pineapple"
+                    android:textColor="@android:color/white"
+                    android:textSize="20sp" />
+
+                <ImageView
+                    android:id="@+id/product_search"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:layout_toStartOf="@+id/product_cart"
+                    android:contentDescription="@string/product_search"
+                    android:src="@drawable/ic_search_white" />
+
+                <ImageView
+                    android:id="@+id/product_cart"
+                    android:layout_width="wrap_content"
+                    android:layout_height="match_parent"
+                    android:layout_alignParentEnd="true"
+                    android:layout_centerVertical="true"
+                    android:layout_marginEnd="10dp"
+                    android:contentDescription="@string/view_cart"
+                    android:src="@drawable/ic_cart" />
+
+            </RelativeLayout>
+
+        </androidx.appcompat.widget.Toolbar>
+
+    </com.google.android.material.appbar.AppBarLayout>
+
+    <RelativeLayout
+        android:layout_below="@+id/appBar"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <RelativeLayout
+            android:id="@+id/bar"
+            android:layout_width="match_parent"
+            android:layout_height="35dp"
+            android:background="@android:color/white">
+
+            <TextView
+                android:id="@+id/txt_delivered"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:drawableStart="@drawable/ic_shopping_basket"
+                android:drawablePadding="10dp"
+                android:padding="8dp"
+                android:text="@string/txt_delivered"
+                android:textColor="@color/colorPrimary" />
+
+            <TextView
+                android:id="@+id/rate"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_alignParentEnd="true"
+                android:layout_marginEnd="15dp"
+                android:gravity="center_vertical"
+                android:text="@string/product_rate"
+                android:textColor="@android:color/background_dark"
+                android:textSize="15sp" />
+        </RelativeLayout>
+
+        <ImageView
+            android:id="@+id/img_prod"
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:layout_below="@+id/bar"
+            android:layout_marginTop="5dp"
+            android:background="@android:color/white"
+            android:contentDescription="@string/product_image"
+            android:src="@drawable/pineapple_200ml" />
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="170dp"
+            android:layout_below="@+id/img_prod"
+            android:layout_marginTop="20dp"
+            android:background="@android:color/white"
+            android:padding="10dp">
+
+            <TextView
+                android:id="@+id/prod_name"
+                android:layout_width="wrap_content"
+                android:layout_height="35dp"
+                android:padding="5dp"
+                android:text="@string/nestle_fruita_vitals_pineapple_juice"
+                android:textSize="20sp" />
+
+            <TextView
+                android:id="@+id/prod_description"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@+id/prod_name"
+                android:padding="5dp"
+                android:text="@string/_200ml"
+                android:textColor="@android:color/secondary_text_dark"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/prod_price"
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@+id/prod_description"
+                android:padding="5dp"
+                android:text="@string/rs_35"
+                android:textColor="@android:color/black"
+                android:textSize="15sp" />
+
+            <TextView
+                android:id="@+id/txt_delivery"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/prod_price"
+                android:layout_marginStart="10dp"
+                android:drawableStart="@drawable/ic_motorcycle"
+                android:drawablePadding="5dp"
+                android:gravity="center_vertical"
+                android:text="@string/same_day_delivery"
+                android:textColor="@android:color/black"
+                android:textSize="13sp" />
+
+            <Button
+                android:layout_width="wrap_content"
+                android:layout_height="30dp"
+                android:layout_below="@+id/prod_price"
+                android:layout_alignParentEnd="true"
+                android:background="@color/colorAccent"
+                android:text="@string/add"
+                android:textColor="@android:color/white"
+                android:textSize="20sp" />
+
+        </RelativeLayout>
+
+    </RelativeLayout>
+
+
+</RelativeLayout>
