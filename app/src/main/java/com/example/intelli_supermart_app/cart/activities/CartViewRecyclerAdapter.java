@@ -37,7 +37,7 @@ public class CartViewRecyclerAdapter extends RecyclerView.Adapter<CartViewRecycl
         holder.product_name.setText(product.getProduct_name());
         holder.product_price.setText(product.getProduct_price());
         holder.product_quantity.setText(product.getProduct_quantity());
-        holder.product_image.setImageAlpha(product.getProduct_image());
+        holder.product_image.setImageResource(product.getProduct_image());
     }
 
     @Override

@@ -17,7 +17,6 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.intelli_supermart_app.Item;
 import com.example.intelli_supermart_app.R;
 import com.example.intelli_supermart_app.cart.activities.CartActivity;
 import com.example.intelli_supermart_app.drawer.activities.AboutActivity;
@@ -41,7 +40,14 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
 
     RecyclerView recyclerView;
     CategoryRecyclerAdapter categoryRecyclerAdapter;
-    List<Item> items;
+    List<CategoryItem> categoryItems;
+    int[] catImages = {R.drawable.beverages, R.drawable.breakfast_and_dairy, R.drawable.fruits_and_vegetables,
+            R.drawable.baby_and_kids, R.drawable.biscuit_snacks_chocolates, R.drawable.grocery_and_staples,
+            R.drawable.furnishing_home_needs, R.drawable.home_and_kitchen, R.drawable.household_needs,
+            R.drawable.ice_creams};
+    String[] catTitles = {"Beverages", "Breakfast & Dairy", "Fruits & Vegetables", " Baby & Kids",
+            "Biscuits Snacks & Chocolates", "Grocery & Staples", "Furnishing & Home Needs", "Home & Kitchen",
+            "Household Needs", "Ice Creams"};
     int[] gridImages = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
 
     ImageView cartImageView;
@@ -86,7 +92,7 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
         navigationView = findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
 
-        int[] flipImages = {R.drawable.slide1, R.drawable.slide2, R.drawable.slide3};
+        int[] flipImages = {R.drawable.slide4, R.drawable.slide6};
         viewFlipper = findViewById(R.id.viewflipper);
 
         for (int image : flipImages) {
@@ -100,16 +106,16 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
     }
 
     private void initRecyclerView() {
-        categoryRecyclerAdapter = new CategoryRecyclerAdapter(items, gridImages, getApplicationContext());
+        categoryRecyclerAdapter = new CategoryRecyclerAdapter(categoryItems, gridImages, getApplicationContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(categoryRecyclerAdapter);
     }
 
     private void initData() {
-        items = new ArrayList<>();
+        categoryItems = new ArrayList<>();
         for (int i = 0; i < 10; i++) {
-            Item item = new Item("This is category " + (i + 1), "Description" + (i + 1));
-            items.add(item);
+            CategoryItem categoryItem = new CategoryItem(catImages[i], catTitles[i], "Description" + (i + 1));
+            categoryItems.add(categoryItem);
         }
     }
 

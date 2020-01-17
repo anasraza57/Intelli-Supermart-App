@@ -20,6 +20,11 @@ public class ProductCategory2 extends Fragment {
     private ProductRecyclerAdapter adapter;
     private List<Product> listProducts;
 
+    int[] prodImages = {R.drawable.apple, R.drawable.guava, R.drawable.red_grapes, R.drawable.pomegranate,
+            R.drawable.peach, R.drawable.pineapple};
+    String[] prodTitles = {"Apple Juice", "Guava Juice", "Red Grapes Juice", "Pomegranate Juice",
+            "Peach Juice", "Pineapple Juice"};
+
     @Override
     public View onCreateView(
             @NonNull LayoutInflater inflater, ViewGroup container,
@@ -30,8 +35,8 @@ public class ProductCategory2 extends Fragment {
         recyclerView.setLayoutManager(new LinearLayoutManager(getActivity()));
 
         listProducts = new ArrayList<>();
-        for (int i = 0; i < 2; i++) {
-            listProducts.add(new Product("Product " + (i + 1), "Rs 150", "1 Piece", R.drawable.honey));
+        for (int i = 2; i > 0; i--) {
+            listProducts.add(new Product(prodTitles[i], "Rs 150", "1 Piece", prodImages[i]));
         }
         adapter = new ProductRecyclerAdapter(listProducts, getActivity());
         recyclerView.setAdapter(adapter);

@@ -18,6 +18,10 @@ public class CartViewActivity extends AppCompatActivity {
     private RecyclerView recyclerView;
     private CartViewRecyclerAdapter adapter;
     private List<Product> listProducts;
+    int[] prodImages = {R.drawable.apple, R.drawable.guava, R.drawable.red_grapes, R.drawable.pomegranate,
+            R.drawable.peach, R.drawable.pineapple,};
+    String[] prodTitles = {"Apple Juice", "Guava Juice", "Red Grapes Juice", "Pomegranate Juice",
+            "Peach Juice", "Pineapple Juice"};
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,7 +36,7 @@ public class CartViewActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         listProducts = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-            listProducts.add(new Product("Product " + (i + 1), "Rs 35", "200ml", R.drawable.pineapple_200ml));
+            listProducts.add(new Product(prodTitles[i], "Rs 135", "200ml", prodImages[i]));
         }
 
         adapter = new CartViewRecyclerAdapter(listProducts, this);

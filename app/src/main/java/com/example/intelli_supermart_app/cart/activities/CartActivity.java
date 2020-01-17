@@ -22,6 +22,11 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
     private CartRecyclerAdapter adapter;
     private List<Cart> listProducts;
     public RelativeLayout proceedButton;
+    int[] prodImages = {R.drawable.apple, R.drawable.guava, R.drawable.red_grapes, R.drawable.pomegranate,
+            R.drawable.peach, R.drawable.pineapple};
+    String[] prodTitles = {"Apple Juice", "Guava Juice", "Red Grapes Juice", "Pomegranate Juice",
+            "Peach Juice", "Pineapple Juice"};
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -30,17 +35,18 @@ public class CartActivity extends AppCompatActivity implements View.OnClickListe
         Objects.requireNonNull(getSupportActionBar()).setTitle("My Cart");
         getSupportActionBar().setDisplayHomeAsUpEnabled(true);
 
-        recyclerView=findViewById(R.id.recycler_cart);
+        recyclerView = findViewById(R.id.recycler_cart);
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
-        listProducts=new ArrayList<>();
-        for (int i=0; i<4; i++){
-            listProducts.add(new Cart("Product "+(i+1),"Rs 35","200ml", R.drawable.pineapple_200ml,R.drawable.ic_cancel));
+        listProducts = new ArrayList<>();
+        for (int i = 0; i < 4; i++) {
+            listProducts.add(new Cart(prodTitles[i], "Rs 35", "200ml", prodImages[i],
+                    R.drawable.ic_cancel));
         }
-        adapter=new CartRecyclerAdapter(listProducts,this);
+        adapter = new CartRecyclerAdapter(listProducts, this);
         recyclerView.setAdapter(adapter);
 
-        proceedButton=findViewById(R.id.layout_checkout);
+        proceedButton = findViewById(R.id.layout_checkout);
         proceedButton.setOnClickListener(this);
     }
 

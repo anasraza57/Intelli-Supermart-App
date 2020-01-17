@@ -156,7 +156,7 @@
         I want to order products in large quantity as a corporate order, what to do?\n\n
         You can write us at customer@Intelli Supermart.com for corporate orders.\n\n
         Refund and Returns\n\n
-        What should I do if an item that is delivered is defective (Broken, leaking or expired)?\n\n
+        What should I do if an categoryItem that is delivered is defective (Broken, leaking or expired)?\n\n
         Contact Intelli Supermart at our helpline, through call or even chat online with our customer support representatives available to facilitate you.\n\n
         Cancellation\n\n
         How can I cancel my order?\n\n
@@ -172,10 +172,10 @@
         You will be getting your order delivered on next working day.\n\n
         What if I want to reschedule my order?\n\n
         Yes, you can do this by clicking on the Need Help option in “My Orders” section. You can also reschedule your order as per your convenience on the basis of slots available.\n\n
-        How will I know if an item in my order is unavailable?\n\n
+        How will I know if an categoryItem in my order is unavailable?\n\n
         In case a product is unavailable after the order is placed, you will be informed via call and afterwards, you may order an alternative product or may cancel the order (if any refund will be applicable, it will also be initiated within 24 hours).\n\n
         Why am I having trouble placing products in the cart?\n\n
-        If you are having trouble placing products in your cart, please make sure that you have made all relevant selections. If you still have problems, this may also mean that the item you are trying to buy is sold out. Please get in touch with our Customer Support Team for further help in this regard.\n\n
+        If you are having trouble placing products in your cart, please make sure that you have made all relevant selections. If you still have problems, this may also mean that the categoryItem you are trying to buy is sold out. Please get in touch with our Customer Support Team for further help in this regard.\n\n
         What should I do if I don\'t get the invoice for my order?\n\n
         Our delivery agent will be providing you the invoice of your order, if in case you don’t get the invoice, you can check it from the Order section of your Intelli Supermart account.\n\n
         My payment was processed successfully but I didn\'t get any order confirmation. What should I do?\n\n
@@ -218,7 +218,7 @@
         First slot: 10 AM – 2 PM\n\n
         Second slot: 4Pm – 8PM\n\n
         Shopping\n\n
-        How are items packaged?\n\n
+        How are categoryItems packaged?\n\n
         The orders are packed in bags and then these bags are placed in a bin before dispatching the order.\n\n
         Intelli Supermart Account\n\n
         Can I sign up for Intelli Supermart account?\n\n
@@ -327,4 +327,7 @@
     <string name="_1_piece">1 Piece</string>
     <string name="price_of_item">Price of Item</string>
     <string name="item_description">Item Description</string>
+    <string name="default_count">0</string>
+    <string name="minus">-</string>
+    <string name="plus">+</string>
 </resources>

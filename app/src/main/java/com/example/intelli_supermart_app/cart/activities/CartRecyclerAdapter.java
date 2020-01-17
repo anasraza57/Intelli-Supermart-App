@@ -37,7 +37,7 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
         holder.product_name.setText(product.getProduct_name());
         holder.product_price.setText(product.getProduct_price());
         holder.product_description.setText(product.getProduct_description());
-        holder.product_image.setImageAlpha(product.getProduct_image());
+        holder.product_image.setImageResource(product.getProduct_image());
         holder.product_remove.setImageAlpha(product.getProduct_remove());
         holder.product_remove.setOnClickListener(this);
     }
@@ -51,7 +51,7 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_cancel:
-                Toast.makeText(context, "Item Removed", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "CategoryItem Removed", Toast.LENGTH_LONG).show();
                 break;
         }
     }

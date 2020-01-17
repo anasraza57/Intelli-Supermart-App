@@ -8,25 +8,25 @@ import android.view.View;
 import android.view.ViewGroup;
 import android.view.animation.LinearInterpolator;
 import android.widget.GridView;
+import android.widget.ImageView;
 import android.widget.RelativeLayout;
 import android.widget.TextView;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
-import com.example.intelli_supermart_app.Item;
 import com.example.intelli_supermart_app.R;
 import com.example.intelli_supermart_app.product.activities.ProductActivity;
 
 import java.util.List;
 
 public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecyclerAdapter.ViewHolder> {
-    List<Item> items;
+    List<CategoryItem> categoryItems;
     Context context;
     int[] images;
 
-    public CategoryRecyclerAdapter(List<Item> items, int[] gridImages, Context applicationContext) {
-        this.items = items;
+    public CategoryRecyclerAdapter(List<CategoryItem> categoryItems, int[] gridImages, Context applicationContext) {
+        this.categoryItems = categoryItems;
         this.images = gridImages;
         this.context = applicationContext;
     }
@@ -42,11 +42,11 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        Item item = items.get(position);
+        CategoryItem categoryItem = categoryItems.get(position);
 
-        holder.cat_title.setText(item.getText());
-        holder.cat_description.setText(item.getSubtext());
-        holder.cat_title.setText(item.getText());
+        holder.imageView.setImageResource(categoryItem.getCategoryImage());
+        holder.cat_title.setText(categoryItem.getText());
+        holder.cat_description.setText(categoryItem.getSubtext());
         holder.upperlayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -66,7 +66,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
 //            }
 //        });
 //
-        boolean isExpanded = item.isExpanded();
+        boolean isExpanded = categoryItem.isExpanded();
         if (isExpanded) {
 //            holder.expandableLayout.setVisibility(View.VISIBLE);
             changeRotate(holder.button, 0f, 90f).start();
@@ -79,7 +79,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
 
     @Override
     public int getItemCount() {
-        return items.size();
+        return categoryItems.size();
     }
 
     private ObjectAnimator changeRotate(RelativeLayout button, float from, float to) {
@@ -91,6 +91,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
 
 
     class ViewHolder extends RecyclerView.ViewHolder {
+        ImageView imageView;
         TextView cat_title, cat_description;
         RelativeLayout button;
         RelativeLayout upperlayout;
@@ -98,6 +99,7 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
 
         ViewHolder(@NonNull View itemView) {
             super(itemView);
+            imageView = itemView.findViewById(R.id.image);
             cat_title = itemView.findViewById(R.id.category_name);
             cat_description = itemView.findViewById(R.id.category_description);
             button = itemView.findViewById(R.id.button);
@@ -108,8 +110,8 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
             upperlayout.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View v) {
-                    Item item = items.get(getAdapterPosition());
-                    item.setExpanded(!item.isExpanded());
+                    CategoryItem categoryItem = categoryItems.get(getAdapterPosition());
+                    categoryItem.setExpanded(!categoryItem.isExpanded());
                     notifyItemChanged(getAdapterPosition());
                 }
             });

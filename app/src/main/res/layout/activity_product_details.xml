@@ -57,12 +57,24 @@
                 <ImageView
                     android:id="@+id/product_cart"
                     android:layout_width="wrap_content"
-                    android:layout_height="match_parent"
-                    android:layout_alignParentEnd="true"
+                    android:layout_height="wrap_content"
                     android:layout_centerVertical="true"
-                    android:layout_marginEnd="10dp"
+                    android:layout_marginEnd="-10dp"
+                    android:layout_toStartOf="@+id/cart_counter"
                     android:contentDescription="@string/view_cart"
                     android:src="@drawable/ic_cart" />
+
+                <TextView
+                    android:id="@+id/cart_counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_alignTop="@+id/product_cart"
+                    android:layout_alignParentEnd="true"
+                    android:layout_marginEnd="10dp"
+                    android:background="@drawable/rounded_textview"
+                    android:text="1"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white" />
 
             </RelativeLayout>
 
@@ -71,9 +83,9 @@
     </com.google.android.material.appbar.AppBarLayout>
 
     <RelativeLayout
-        android:layout_below="@+id/appBar"
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="match_parent"
+        android:layout_below="@+id/appBar">
 
         <RelativeLayout
             android:id="@+id/bar"
@@ -162,15 +174,59 @@
                 android:textColor="@android:color/black"
                 android:textSize="13sp" />
 
-            <Button
+            <!--            <Button-->
+            <!--                android:layout_width="wrap_content"-->
+            <!--                android:layout_height="30dp"-->
+            <!--                android:layout_below="@+id/prod_price"-->
+            <!--                android:layout_alignParentEnd="true"-->
+            <!--                android:background="@color/colorAccent"-->
+            <!--                android:text="@string/add"-->
+            <!--                android:textColor="@android:color/white"-->
+            <!--                android:textSize="20sp" />-->
+
+            <RelativeLayout
+                android:id="@+id/increment_button"
                 android:layout_width="wrap_content"
-                android:layout_height="30dp"
+                android:layout_height="wrap_content"
                 android:layout_below="@+id/prod_price"
                 android:layout_alignParentEnd="true"
-                android:background="@color/colorAccent"
-                android:text="@string/add"
-                android:textColor="@android:color/white"
-                android:textSize="20sp" />
+                android:layout_marginEnd="10dp"
+                android:layout_toEndOf="@+id/txt_delivery"
+                android:gravity="end|center_vertical">
+
+                <Button
+                    android:id="@+id/minusbtn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/counter"
+                    android:background="@drawable/rounded_textview"
+                    android:text="@string/minus"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+
+                <TextView
+                    android:id="@+id/counter"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_marginEnd="5dp"
+                    android:layout_toStartOf="@+id/plusbtn"
+                    android:textColor="@android:color/black"
+                    android:text="1"
+                    android:textSize="25sp" />
+
+                <Button
+                    android:id="@+id/plusbtn"
+                    android:layout_width="30dp"
+                    android:layout_height="30dp"
+                    android:layout_alignParentEnd="true"
+                    android:background="@drawable/rounded_textview"
+                    android:text="@string/plus"
+                    android:textAlignment="center"
+                    android:textColor="@android:color/white"
+                    android:textSize="24sp" />
+            </RelativeLayout>
 
         </RelativeLayout>
 

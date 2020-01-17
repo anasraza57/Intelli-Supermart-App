@@ -42,7 +42,7 @@ class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter
         holder.product_name.setText(product.getProduct_name());
         holder.product_price.setText(product.getProduct_price());
         holder.product_quantity.setText(product.getProduct_quantity());
-        holder.product_image.setImageAlpha(product.getProduct_image());
+        holder.product_image.setImageResource(product.getProduct_image());
         holder.product_layout.setOnClickListener(this);
         holder.add_button.setOnClickListener(this);
     }
@@ -60,7 +60,7 @@ class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter
                 context.startActivity(intent);
                 break;
             case R.id.addBtn:
-                Toast.makeText(context, "Item Added", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "CategoryItem Added", Toast.LENGTH_LONG).show();
                 break;
         }
     }
