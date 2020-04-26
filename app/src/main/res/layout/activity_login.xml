@@ -38,7 +38,8 @@
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent">
+        android:layout_height="350dp"
+        android:id="@+id/login_area">
 
 
         <TextView
@@ -46,7 +47,7 @@
             android:layout_width="250dp"
             android:layout_height="80dp"
             android:gravity="center"
-            android:padding="10dp"
+            android:padding="20dp"
             android:text="@string/txt_login"
             android:textSize="15sp"
             app:layout_constraintBottom_toBottomOf="parent"
@@ -61,10 +62,12 @@
             android:layout_width="wrap_content"
             android:layout_height="50dp"
             android:autofillHints=""
+            android:padding="10dp"
+            android:layout_marginTop="5dp"
             android:gravity="center"
             android:hint="@string/hint_mobile"
             android:inputType="phone"
-            android:maxLength="11"
+            android:maxLength="14"
             android:textSize="20sp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -82,6 +85,7 @@
             android:text="@string/btn_next"
             android:textColor="@android:color/white"
             android:textSize="20sp"
+            android:padding="10dp"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.497"
@@ -91,5 +95,60 @@
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="350dp"
+        android:id="@+id/verify_area">
+
+
+        <TextView
+            android:id="@+id/txt_verification"
+            android:layout_width="250dp"
+            android:layout_height="80dp"
+            android:padding="10dp"
+            android:text="@string/txt_verify"
+            android:textAlignment="center"
+            android:textSize="15sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.496"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.058" />
+
+        <EditText
+            android:id="@+id/txt_code"
+            android:layout_width="80dp"
+            android:layout_height="50dp"
+            android:autofillHints=""
+            android:hint="@string/hint_code"
+            android:inputType="textFilter|number"
+            android:maxLength="6"
+            android:textAlignment="center"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.204"
+            tools:targetApi="o" />
+
+        <Button
+            android:id="@+id/btn_verify"
+            android:layout_width="220dp"
+            android:layout_height="50dp"
+            android:background="@android:color/darker_gray"
+            android:text="Verify"
+            android:textAlignment="center"
+            android:textColor="@android:color/white"
+            android:textSize="20sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.497"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/txt_code"
+            app:layout_constraintVertical_bias="0.015" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 </LinearLayout>

@@ -273,11 +273,11 @@
     <string name="title_login">Login</string>
     <string name="verify">Verify</string>
     <string name="txt_login">We will send a SMS with a confirmation code to the number.</string>
-    <string name="txt_verify"> Please enter 4 digit code sent on your number</string>
+    <string name="txt_verify"> Please enter code sent on your number</string>
     <string name="previous_activity">Direct to previous activity.</string>
     <string name="btn_next">Next</string>
-    <string name="hint_mobile">Mobile</string>
-    <string name="hint_code">0000</string>
+    <string name="hint_mobile">0092----------</string>
+    <string name="hint_code">000000</string>
     <string name="others">Others</string>
     <string name="title_activity_category">CategoryActivity</string>
     <string name="tab_text_1">Tab 1</string>

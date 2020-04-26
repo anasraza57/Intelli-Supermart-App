@@ -3,7 +3,6 @@ package com.example.intelli_supermart_app.login.activities;
 import android.content.Intent;
 import android.graphics.Color;
 import android.os.Bundle;
-import android.os.StrictMode;
 import android.text.Editable;
 import android.text.TextWatcher;
 import android.view.View;
@@ -12,22 +11,34 @@ import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.Toast;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.constraintlayout.widget.ConstraintLayout;
 
-import com.example.intelli_supermart_app.category.activities.MainCategoryActivity;
 import com.example.intelli_supermart_app.R;
+import com.example.intelli_supermart_app.category.activities.MainCategoryActivity;
+import com.google.android.gms.tasks.OnCompleteListener;
+import com.google.android.gms.tasks.Task;
+import com.google.firebase.FirebaseException;
+import com.google.firebase.auth.AuthResult;
+import com.google.firebase.auth.FirebaseAuth;
+import com.google.firebase.auth.PhoneAuthCredential;
+import com.google.firebase.auth.PhoneAuthProvider;
 
-import java.io.BufferedReader;
-import java.io.InputStreamReader;
-import java.net.HttpURLConnection;
-import java.net.URL;
-import java.util.Random;
+import java.util.concurrent.TimeUnit;
 
 public class LoginActivity extends AppCompatActivity implements View.OnClickListener {
 
     private EditText PhoneNo;
     private Button Next;
     private ImageView Cross;
+    private EditText Code;
+    private Button Verify;
+    private ConstraintLayout VerifyArea;
+
+    FirebaseAuth auth;
+    PhoneAuthProvider.OnVerificationStateChangedCallbacks mCallBack;
+    String verificationCode;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -37,10 +48,34 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         PhoneNo = (EditText) findViewById(R.id.txt_phoneNo);
         Next = (Button) findViewById(R.id.btn_next);
         Cross = (ImageView) findViewById(R.id.login_back);
-        StrictMode.ThreadPolicy policy = new StrictMode.ThreadPolicy.Builder().permitAll().build();
-        StrictMode.setThreadPolicy(policy);
+        Code = (EditText) findViewById(R.id.txt_code);
+        Verify = (Button) findViewById(R.id.btn_verify);
+        VerifyArea=(ConstraintLayout)findViewById(R.id.verify_area);
+        VerifyArea.setVisibility(View.INVISIBLE);
+
+        auth = FirebaseAuth.getInstance();
+        mCallBack = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
+            @Override
+            public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+
+            }
+
+            @Override
+            public void onVerificationFailed(FirebaseException e) {
+
+            }
+
+            @Override
+            public void onCodeSent(String s, PhoneAuthProvider.ForceResendingToken forceResendingToken) {
+                super.onCodeSent(s, forceResendingToken);
+                verificationCode = s;
+                Toast.makeText(getApplicationContext(), "Code send successfully", Toast.LENGTH_SHORT).show();
+            }
+        };
+
         Next.setOnClickListener(this);
         Cross.setOnClickListener(this);
+        Verify.setOnClickListener(this);
         PhoneNo.addTextChangedListener(new TextWatcher() {
             @Override
             public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
@@ -54,10 +89,30 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
 
             @Override
             public void afterTextChanged(Editable ph) {
-                if (ph.toString().length() == 11) {
+                if (ph.toString().length() == 14) {
                     Next.setBackgroundColor(getColor(R.color.colorAccent));
-                } else if (ph.toString().length() != 11) {
+                } else if (ph.toString().length() != 14) {
                     Next.setBackgroundColor(Color.GRAY);
+                }
+            }
+        });
+        Code.addTextChangedListener(new TextWatcher() {
+            @Override
+            public void beforeTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void onTextChanged(CharSequence charSequence, int i, int i1, int i2) {
+
+            }
+
+            @Override
+            public void afterTextChanged(Editable ph) {
+                if (ph.toString().length() == 6) {
+                    Verify.setBackgroundColor(getColor(R.color.colorAccent));
+                } else if (ph.toString().length() != 6) {
+                    Verify.setBackgroundColor(Color.GRAY);
                 }
             }
         });
@@ -78,44 +133,46 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                     else if (phoneNo.length() != 11)
                         PhoneNo.setError("Invalid Phone No");
                 } else {
-                    Random random = new Random();
-                    int randomNo = random.nextInt(9999);
-                    try {
-                        // Construct data
-                        String apiKey = "apikey=" + "io0s/wZ2kOY-SlJUGoVRCN1NwKlj2Y6w7Exr5mt0BT";
-
-                        String message = "&message=" + "Hey User ! Your OTP code is " + randomNo;
-                        String sender = "&sender=" + "Intelli Supermart";
-                        String numbers = "&numbers=" + PhoneNo.getText().toString();
-
-                        // Send data
-                        HttpURLConnection conn = (HttpURLConnection) new URL("https://api.txtlocal.com/send/?").openConnection();
-                        String data = apiKey + numbers + message + sender;
-                        conn.setDoOutput(true);
-                        conn.setRequestMethod("POST");
-                        conn.setRequestProperty("Content-Length", Integer.toString(data.length()));
-                        conn.getOutputStream().write(data.getBytes("UTF-8"));
-                        final BufferedReader rd = new BufferedReader(new InputStreamReader(conn.getInputStream()));
-                        final StringBuffer stringBuffer = new StringBuffer();
-                        String line;
-                        while ((line = rd.readLine()) != null) {
-                            stringBuffer.append(line);
-                        }
-                        rd.close();
-                        Toast.makeText(getApplicationContext(), "OTP send successfully.", Toast.LENGTH_LONG).show();
-                        intent = new Intent(LoginActivity.this, VerificationActivity.class);
-                        intent.putExtra("RandomNo", randomNo);
-                        startActivity(intent);
-                        //return stringBuffer.toString();
-                    } catch (Exception e) {
-                        Toast.makeText(getApplicationContext(), " Error in SMS sending" + e, Toast.LENGTH_LONG).show();
-                        //System.out.println("Error SMS "+e);
-                        //return "Error "+e;
+                    PhoneNo.setEnabled(false);
+                    Next.setEnabled(false);
+                    VerifyArea.setVisibility(View.VISIBLE);
+                    PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNo,60, TimeUnit.SECONDS,this,mCallBack);
+                }
+                break;
+            case R.id.btn_verify:
+                String inputCode = Code.getText().toString();
+                if ((inputCode.isEmpty()) || (inputCode.length() != 6)) {
+                    if (inputCode.isEmpty())
+                        Code.setError("Enter Code");
+                    else if (inputCode.length() != 6)
+                        Code.setError("Invalid Code");
+                } else {
+                    Verify.setBackgroundColor(getColor(R.color.colorAccent));
+                    if(verificationCode!=null){
+                        verifyPhoneNo(verificationCode,inputCode);
                     }
 
                 }
                 break;
         }
     }
+    public void verifyPhoneNo(String verifyCode, String inputCode){
+        PhoneAuthCredential credential=PhoneAuthProvider.getCredential(verifyCode,inputCode);
+        signIn(credential);
+    }
 
+    public void signIn(PhoneAuthCredential credential){
+        auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>(){
+            @Override
+            public void onComplete(@NonNull Task<AuthResult> task) {
+                if(task.isSuccessful()){
+                    Intent intent= new Intent(LoginActivity.this,MainCategoryActivity.class);
+                    startActivity(intent);
+                }
+                else{
+                    Toast.makeText(getApplicationContext(),"Invalid Code",Toast.LENGTH_SHORT).show();
+                }
+            }
+        });
+    }
 }
