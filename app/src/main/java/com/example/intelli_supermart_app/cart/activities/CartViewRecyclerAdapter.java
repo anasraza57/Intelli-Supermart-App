@@ -11,15 +11,15 @@ import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.intelli_supermart_app.R;
-import com.example.intelli_supermart_app.product.activities.Product;
+import com.example.intelli_supermart_app.product.activities.ProductModel;
 
 import java.util.List;
 
 public class CartViewRecyclerAdapter extends RecyclerView.Adapter<CartViewRecyclerAdapter.CartViewHolder> {
-    private List<Product> listProducts;
+    private List<ProductModel> listProducts;
     private Context context;
 
-    public CartViewRecyclerAdapter(List<Product> listProducts, Context context) {
+    public CartViewRecyclerAdapter(List<ProductModel> listProducts, Context context) {
         this.listProducts = listProducts;
         this.context = context;
     }
@@ -33,7 +33,7 @@ public class CartViewRecyclerAdapter extends RecyclerView.Adapter<CartViewRecycl
 
     @Override
     public void onBindViewHolder(@NonNull CartViewHolder holder, int position) {
-        final Product product = listProducts.get(position);
+        final ProductModel product = listProducts.get(position);
         holder.product_name.setText(product.getProduct_name());
         holder.product_price.setText(product.getProduct_price());
         holder.product_quantity.setText(product.getProduct_quantity());

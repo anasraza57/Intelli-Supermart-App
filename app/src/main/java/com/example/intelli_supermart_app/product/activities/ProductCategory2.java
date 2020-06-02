@@ -18,7 +18,7 @@ import java.util.List;
 public class ProductCategory2 extends Fragment {
     private RecyclerView recyclerView;
     private ProductRecyclerAdapter adapter;
-    private List<Product> listProducts;
+    private List<ProductModel> listProducts;
 
 //    int[] prodImages = {R.drawable.apple, R.drawable.guava, R.drawable.red_grapes, R.drawable.pomegranate,
 //            R.drawable.peach, R.drawable.pineapple};
@@ -36,7 +36,7 @@ public class ProductCategory2 extends Fragment {
 
         listProducts = new ArrayList<>();
         for (int i = 2; i > 0; i--) {
-//            listProducts.add(new Product(prodTitles[i], "Rs 150", "1 Piece", prodImages[i]));
+//            listProducts.add(new ProductModel(prodTitles[i], "Rs 150", "1 Piece", prodImages[i]));
         }
         adapter = new ProductRecyclerAdapter(listProducts, getActivity());
         recyclerView.setAdapter(adapter);

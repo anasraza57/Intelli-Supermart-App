@@ -7,7 +7,7 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.intelli_supermart_app.R;
-import com.example.intelli_supermart_app.product.activities.Product;
+import com.example.intelli_supermart_app.product.activities.ProductModel;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -17,7 +17,7 @@ public class CartViewActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
     private CartViewRecyclerAdapter adapter;
-    private List<Product> listProducts;
+    private List<ProductModel> listProducts;
 //    int[] prodImages = {R.drawable.apple, R.drawable.guava, R.drawable.red_grapes, R.drawable.pomegranate,
 //            R.drawable.peach, R.drawable.pineapple,};
 //    String[] prodTitles = {"Apple Juice", "Guava Juice", "Red Grapes Juice", "Pomegranate Juice",
@@ -36,7 +36,7 @@ public class CartViewActivity extends AppCompatActivity {
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         listProducts = new ArrayList<>();
         for (int i = 0; i < 4; i++) {
-//            listProducts.add(new Product(prodTitles[i], "Rs 135", "200ml", prodImages[i]));
+//            listProducts.add(new ProductModel(prodTitles[i], "Rs 135", "200ml", prodImages[i]));
         }
 
         adapter = new CartViewRecyclerAdapter(listProducts, this);

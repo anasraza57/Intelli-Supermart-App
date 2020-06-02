@@ -21,10 +21,10 @@ import java.util.List;
 class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter.ProductViewHolder>
         implements View.OnClickListener {
 
-    private List<Product> listProducts;
+    private List<ProductModel> listProducts;
     private Context context;
 
-    public ProductRecyclerAdapter(List<Product> listProducts, Context context) {
+    public ProductRecyclerAdapter(List<ProductModel> listProducts, Context context) {
         this.listProducts = listProducts;
         this.context = context;
     }
@@ -38,11 +38,10 @@ class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter
 
     @Override
     public void onBindViewHolder(@NonNull final ProductViewHolder holder, int position) {
-        final Product product = listProducts.get(position);
+        final ProductModel product = listProducts.get(position);
         holder.product_name.setText(product.getProduct_name());
         holder.product_price.setText(product.getProduct_price());
         holder.product_quantity.setText(product.getProduct_quantity());
-        holder.product_image.setImageResource(product.getProduct_image());
         holder.product_layout.setOnClickListener(this);
         holder.add_button.setOnClickListener(this);
     }
@@ -60,7 +59,7 @@ class ProductRecyclerAdapter extends RecyclerView.Adapter<ProductRecyclerAdapter
                 context.startActivity(intent);
                 break;
             case R.id.addBtn:
-                Toast.makeText(context, "CategoryItem Added", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Category Added", Toast.LENGTH_LONG).show();
                 break;
         }
     }

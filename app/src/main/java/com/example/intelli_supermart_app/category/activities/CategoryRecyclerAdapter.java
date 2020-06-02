@@ -43,14 +43,14 @@ public class CategoryRecyclerAdapter extends RecyclerView.Adapter<CategoryRecycl
         PictureModel pictureModel = categoryPictures.get(position);
         int id = context.getResources().getIdentifier(pictureModel.name.substring(0, pictureModel.name.indexOf(".")), "drawable", context.getPackageName());
         holder.imageView.setImageResource(id);
-        holder.cat_title.setText(categoryModel.name);
+        holder.cat_title.setText(categoryModel.getName());
 
         holder.categoryLayout.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent intent = new Intent(context, ProductActivity.class);
                 intent.addFlags(Intent.FLAG_ACTIVITY_NEW_TASK);
-                intent.putExtra("slug", categoryModel.slug);
+                intent.putExtra("slug", categoryModel.getSlug());
                 context.startActivity(intent);
             }
         });

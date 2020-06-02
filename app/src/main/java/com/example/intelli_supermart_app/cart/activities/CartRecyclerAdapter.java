@@ -51,7 +51,7 @@ public class CartRecyclerAdapter extends RecyclerView.Adapter<CartRecyclerAdapte
     public void onClick(View view) {
         switch (view.getId()) {
             case R.id.btn_cancel:
-                Toast.makeText(context, "CategoryItem Removed", Toast.LENGTH_LONG).show();
+                Toast.makeText(context, "Category Removed", Toast.LENGTH_LONG).show();
                 break;
         }
     }
