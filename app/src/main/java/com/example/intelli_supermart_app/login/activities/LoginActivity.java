@@ -45,23 +45,26 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-        PhoneNo = (EditText) findViewById(R.id.txt_phoneNo);
-        Next = (Button) findViewById(R.id.btn_next);
-        Cross = (ImageView) findViewById(R.id.login_back);
-        Code = (EditText) findViewById(R.id.txt_code);
-        Verify = (Button) findViewById(R.id.btn_verify);
-        VerifyArea=(ConstraintLayout)findViewById(R.id.verify_area);
+        PhoneNo = findViewById(R.id.txt_phoneNo);
+        Next = findViewById(R.id.btn_next);
+        Cross = findViewById(R.id.login_back);
+        Code = findViewById(R.id.txt_code);
+        Verify = findViewById(R.id.btn_verify);
+        VerifyArea = findViewById(R.id.verify_area);
         VerifyArea.setVisibility(View.INVISIBLE);
 
         auth = FirebaseAuth.getInstance();
+
         mCallBack = new PhoneAuthProvider.OnVerificationStateChangedCallbacks() {
             @Override
             public void onVerificationCompleted(PhoneAuthCredential phoneAuthCredential) {
+                Toast.makeText(getApplicationContext(), "onVerificationCompleted", Toast.LENGTH_SHORT).show();
 
             }
 
             @Override
             public void onVerificationFailed(FirebaseException e) {
+                Toast.makeText(getApplicationContext(), "onVerificationFailed", Toast.LENGTH_SHORT).show();
 
             }
 
@@ -127,50 +130,51 @@ public class LoginActivity extends AppCompatActivity implements View.OnClickList
                 break;
             case R.id.btn_next:
                 String phoneNo = PhoneNo.getText().toString();
-                if ((phoneNo.isEmpty()) || (phoneNo.length() != 11)) {
+                if (phoneNo.length() != 11) {
                     if (phoneNo.isEmpty())
                         PhoneNo.setError("Enter Phone Number");
-                    else if (phoneNo.length() != 11)
+                    else
                         PhoneNo.setError("Invalid Phone No");
                 } else {
                     PhoneNo.setEnabled(false);
                     Next.setEnabled(false);
                     VerifyArea.setVisibility(View.VISIBLE);
-                    PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNo,60, TimeUnit.SECONDS,this,mCallBack);
+                    PhoneAuthProvider.getInstance().verifyPhoneNumber(phoneNo, 60, TimeUnit.SECONDS, this, mCallBack);
                 }
                 break;
             case R.id.btn_verify:
                 String inputCode = Code.getText().toString();
-                if ((inputCode.isEmpty()) || (inputCode.length() != 6)) {
+                if (inputCode.length() != 6) {
                     if (inputCode.isEmpty())
                         Code.setError("Enter Code");
-                    else if (inputCode.length() != 6)
+                    else
                         Code.setError("Invalid Code");
                 } else {
                     Verify.setBackgroundColor(getColor(R.color.colorAccent));
-                    if(verificationCode!=null){
-                        verifyPhoneNo(verificationCode,inputCode);
+                    if (verificationCode != null) {
+                        verifyPhoneNo(verificationCode, inputCode);
                     }
 
                 }
                 break;
         }
     }
-    public void verifyPhoneNo(String verifyCode, String inputCode){
-        PhoneAuthCredential credential=PhoneAuthProvider.getCredential(verifyCode,inputCode);
+
+    public void verifyPhoneNo(String verifyCode, String inputCode) {
+        PhoneAuthCredential credential = PhoneAuthProvider.getCredential(verifyCode, inputCode);
         signIn(credential);
     }
 
-    public void signIn(PhoneAuthCredential credential){
-        auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>(){
+    public void signIn(PhoneAuthCredential credential) {
+        auth.signInWithCredential(credential).addOnCompleteListener(new OnCompleteListener<AuthResult>() {
             @Override
             public void onComplete(@NonNull Task<AuthResult> task) {
-                if(task.isSuccessful()){
-                    Intent intent= new Intent(LoginActivity.this,MainCategoryActivity.class);
+                if (task.isSuccessful()) {
+                    Toast.makeText(getApplicationContext(), "signIn", Toast.LENGTH_SHORT).show();
+                    Intent intent = new Intent(LoginActivity.this, MainCategoryActivity.class);
                     startActivity(intent);
-                }
-                else{
-                    Toast.makeText(getApplicationContext(),"Invalid Code",Toast.LENGTH_SHORT).show();
+                } else {
+                    Toast.makeText(getApplicationContext(), "Invalid Code", Toast.LENGTH_SHORT).show();
                 }
             }
         });

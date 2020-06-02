@@ -323,11 +323,13 @@
     <string name="proceed_to_checkout">Proceed to checkout</string>
     <string name="rs_250">Rs 250</string>
     <string name="view_4_items">View 4 Items</string>
-    <string name="name_of_item">Name of Item</string>
+    <string name="name_of_item">Name of Category</string>
     <string name="_1_piece">1 Piece</string>
     <string name="price_of_item">Price of Item</string>
     <string name="item_description">Item Description</string>
     <string name="default_count">0</string>
     <string name="minus">-</string>
     <string name="plus">+</string>
+    <string name="image">Image</string>
+    <string name="right_arrow">Right Arrow</string>
 </resources>

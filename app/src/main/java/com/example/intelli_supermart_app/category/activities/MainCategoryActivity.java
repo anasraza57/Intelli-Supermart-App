@@ -1,6 +1,7 @@
 package com.example.intelli_supermart_app.category.activities;
 
 import android.content.Intent;
+import android.os.AsyncTask;
 import android.os.Bundle;
 import android.view.MenuItem;
 import android.view.View;
@@ -17,6 +18,7 @@ import androidx.drawerlayout.widget.DrawerLayout;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import com.example.intelli_supermart_app.PictureModel;
 import com.example.intelli_supermart_app.R;
 import com.example.intelli_supermart_app.cart.activities.CartActivity;
 import com.example.intelli_supermart_app.drawer.activities.AboutActivity;
@@ -28,10 +30,15 @@ import com.example.intelli_supermart_app.drawer.activities.TermsActivity;
 import com.example.intelli_supermart_app.login.activities.LoginActivity;
 import com.google.android.material.navigation.NavigationView;
 
+import java.io.BufferedReader;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.URL;
 import java.util.ArrayList;
 import java.util.List;
 
-public class MainCategoryActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener {
+public class MainCategoryActivity extends AppCompatActivity implements NavigationView.OnNavigationItemSelectedListener, ResponseListener {
+    private static final String TAG = "Hello";
     DrawerLayout drawer;
     Toolbar toolbar;
     NavigationView navigationView;
@@ -40,17 +47,12 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
 
     RecyclerView recyclerView;
     CategoryRecyclerAdapter categoryRecyclerAdapter;
-    List<CategoryItem> categoryItems;
-    int[] catImages = {R.drawable.beverages, R.drawable.breakfast_and_dairy, R.drawable.fruits_and_vegetables,
-            R.drawable.baby_and_kids, R.drawable.biscuit_snacks_chocolates, R.drawable.grocery_and_staples,
-            R.drawable.furnishing_home_needs, R.drawable.home_and_kitchen, R.drawable.household_needs,
-            R.drawable.ice_creams};
-    String[] catTitles = {"Beverages", "Breakfast & Dairy", "Fruits & Vegetables", " Baby & Kids",
-            "Biscuits Snacks & Chocolates", "Grocery & Staples", "Furnishing & Home Needs", "Home & Kitchen",
-            "Household Needs", "Ice Creams"};
-    int[] gridImages = {R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher, R.mipmap.ic_launcher};
 
     ImageView cartImageView;
+
+    String strURL = "https://intelli-supermart.herokuapp.com/mobileMainCategory";
+    List<CategoryModel> categoryModelList;
+    List<PictureModel> pictureModelList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -76,14 +78,6 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
             }
         });
 
-//        FloatingActionButton fab = findViewById(R.id.fab);
-//        fab.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View view) {
-//                Intent intent = new Intent(getApplicationContext(), ProductActivity.class);
-//                startActivity(intent);
-//            }
-//        });
         drawer = findViewById(R.id.drawer_layout);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(this, drawer, toolbar, R.string.nav_drawer_open, R.string.nav_drawer_close);
         drawer.addDrawerListener(toggle);
@@ -100,23 +94,17 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
         }
 
         recyclerView = findViewById(R.id.recyclerView);
-        initData();
+        categoryModelList = new ArrayList<>();
+        pictureModelList = new ArrayList<>();
         initRecyclerView();
-
+        new getAsyncTask(MainCategoryActivity.this).execute(strURL);
     }
 
     private void initRecyclerView() {
-        categoryRecyclerAdapter = new CategoryRecyclerAdapter(categoryItems, gridImages, getApplicationContext());
+        categoryRecyclerAdapter = new CategoryRecyclerAdapter(categoryModelList, pictureModelList,
+                getApplicationContext());
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
         recyclerView.setAdapter(categoryRecyclerAdapter);
-    }
-
-    private void initData() {
-        categoryItems = new ArrayList<>();
-        for (int i = 0; i < 10; i++) {
-            CategoryItem categoryItem = new CategoryItem(catImages[i], catTitles[i], "Description" + (i + 1));
-            categoryItems.add(categoryItem);
-        }
     }
 
     public void flipperImages(int image) {
@@ -184,6 +172,56 @@ public class MainCategoryActivity extends AppCompatActivity implements Navigatio
         } else {
 
             super.onBackPressed();
+        }
+    }
+
+    @Override
+    public void UpdateUI(String Response) {
+        if (Response != null) {
+            categoryModelList = CategoryModel.ParseJson(Response);
+            pictureModelList = PictureModel.ParseJson(Response);
+            categoryRecyclerAdapter.category = categoryModelList;
+            categoryRecyclerAdapter.categoryPictures = pictureModelList;
+            categoryRecyclerAdapter.notifyDataSetChanged(); // this funciton will automatically changes the recyclerview
+        }
+    }
+
+    public static class getAsyncTask extends AsyncTask<String, Void, String> {
+        ResponseListener c;
+        String data = "";
+
+        getAsyncTask(ResponseListener c) {
+            this.c = c;
+        }
+
+        @Override
+        protected void onPostExecute(String s) {
+            super.onPostExecute(s);
+            c.UpdateUI(s);
+        }
+
+        @Override
+        protected String doInBackground(String... strings) {
+            try {
+                URL url = new URL(strings[0]);
+                HttpURLConnection con = (HttpURLConnection) url.openConnection();
+                con.setRequestMethod("GET");
+                con.connect();
+
+                BufferedReader bf = new BufferedReader(new InputStreamReader(con.getInputStream()));
+                String line = "";
+                while (line != null) {
+                    line = bf.readLine();
+                    if (!line.equals("null")) {
+                        data = data + line;
+                    }
+                }
+
+            } catch (Exception e) {
+                e.printStackTrace();
+            }
+
+            return data;
         }
     }
 }

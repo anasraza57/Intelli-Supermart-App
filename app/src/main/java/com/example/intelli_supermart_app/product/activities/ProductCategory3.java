@@ -19,8 +19,8 @@ public class ProductCategory3 extends Fragment {
     private RecyclerView recyclerView;
     private ProductRecyclerAdapter adapter;
     private List<Product> listProducts;
-    int[] prodImages = {R.drawable.jame_sheeren, R.drawable.rooh_afza, R.drawable.roohafza};
-    String[] prodTitles = {"Jam e Sheeren", "Rooh Afza 500ML", "Rooh Afza 1L"};
+//    int[] prodImages = {R.drawable.jame_sheeren, R.drawable.rooh_afza, R.drawable.roohafza};
+//    String[] prodTitles = {"Jam e Sheeren", "Rooh Afza 500ML", "Rooh Afza 1L"};
 
     @Override
     public View onCreateView(
@@ -33,7 +33,7 @@ public class ProductCategory3 extends Fragment {
 
         listProducts = new ArrayList<>();
         for (int i = 0; i < 3; i++) {
-            listProducts.add(new Product(prodTitles[i], "Rs 100", "1 Piece", prodImages[i]));
+//            listProducts.add(new Product(prodTitles[i], "Rs 100", "1 Piece", prodImages[i]));
         }
         adapter = new ProductRecyclerAdapter(listProducts, getActivity());
         recyclerView.setAdapter(adapter);
