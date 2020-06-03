@@ -11,20 +11,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="9dacd5e8-5bd4-43c2-871c-5e56c6559d60" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductsTabActivity.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/SubcategoryModel.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/app/src/main/res/layout/activity_products_tab.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" beforeDir="false" afterPath="$PROJECT_DIR$/.gradle/5.6.4/fileHashes/fileHashes.lock" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/caches/build_file_checksums.ser" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/cart/activities/CartRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/cart/activities/CartRecyclerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/cart/activities/CartViewActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/cart/activities/CartViewActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/cart/activities/CartViewRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/cart/activities/CartViewRecyclerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/category/activities/CategoryGridAdaptor.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/category/activities/CategoryItem.java" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/category/activities/CategoryModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/category/activities/CategoryModel.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/category/activities/CategoryRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/category/activities/CategoryRecyclerAdapter.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/Product.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductModel.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/app.iml" beforeDir="false" afterPath="$PROJECT_DIR$/app/app.iml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/AndroidManifest.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/PictureModel.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/PictureModel.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductCategory1.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductCategory1.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductCategory2.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductCategory2.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductCategory3.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductCategory3.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductRecyclerAdapter.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/product/activities/ProductRecyclerAdapter.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/ui/main/PlaceholderFragment.java" beforeDir="false" afterPath="$PROJECT_DIR$/app/src/main/java/com/example/intelli_supermart_app/ui/main/PlaceholderFragment.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -123,7 +120,7 @@
     <property name="format" value="JPG" />
     <property name="lastFolderRoot" value="$PROJECT_DIR$/../Intelli-Supermart-Web/static/images/categories/pet_care.jpg" />
     <property name="last_directory_selection" value="$PROJECT_DIR$/app/src/main/res/drawable" />
-    <property name="last_opened_file_path" value="$USER_HOME$/Projects/HomeServiceApp" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Downloads/Dynamic-Viewpager-Custom-TabLayout-master/TestDynamicViewPager" />
     <property name="method" value="Automatic" />
     <property name="project.structure.last.edited" value="Dependencies" />
     <property name="project.structure.proportion" value="0.17" />
@@ -133,14 +130,15 @@
     <property name="sourceResolution" value="HDPI" />
   </component>
   <component name="RecentsManager">
-    <key name="CreateClassDialog.RecentsKey">
+    <key name="android.template.parentActivityClass">
+      <recent name="" />
+    </key>
+    <key name="android.template.packageName">
+      <recent name="com.example.intelli_supermart_app.product.activities" />
       <recent name="com.example.intelli_supermart_app" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
       <recent name="$PROJECT_DIR$/app/src/main/res/layout/drawerlayouts" />
-    </key>
-    <key name="android.template.packageName">
-      <recent name="com.example.intelli_supermart_app" />
     </key>
     <key name="MoveClassesOrPackagesDialog.RECENTS_KEY">
       <recent name="com.example.intelli_supermart_app.category.activities" />
@@ -161,8 +159,8 @@
       <recent name="com.example.intelli_supermart_app.cart.activities" />
       <recent name="com.example.intelli_supermart_app" />
     </key>
-    <key name="android.template.parentActivityClass">
-      <recent name="" />
+    <key name="CreateClassDialog.RecentsKey">
+      <recent name="com.example.intelli_supermart_app" />
     </key>
   </component>
   <component name="RunDashboard">

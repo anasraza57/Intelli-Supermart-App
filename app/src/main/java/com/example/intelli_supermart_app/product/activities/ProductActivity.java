@@ -10,6 +10,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.viewpager.widget.ViewPager;
 
+import com.example.intelli_supermart_app.PictureModel;
 import com.example.intelli_supermart_app.R;
 import com.example.intelli_supermart_app.cart.activities.CartActivity;
 import com.example.intelli_supermart_app.category.activities.MainCategoryActivity;
@@ -30,12 +31,16 @@ public class ProductActivity extends AppCompatActivity implements View.OnClickLi
     public ImageView back;
     String strURL = "https://intelli-supermart.herokuapp.com/mobileProduct/";
     List<ProductModel> productsList;
+    List<PictureModel> picturesList;
+    List<SubcategoryModel> subcategoriesList;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_product);
         productsList = new ArrayList<>();
+        picturesList = new ArrayList<>();
+        subcategoriesList = new ArrayList<>();
         Bundle bundle = getIntent().getExtras();
         if (bundle != null) {
             String slug = bundle.getString("slug");
@@ -73,6 +78,8 @@ public class ProductActivity extends AppCompatActivity implements View.OnClickLi
     public void UpdateUI(String Response) {
         if(Response!=null){
             productsList = ProductModel.ParseJson(Response);
+            picturesList = PictureModel.ParseJson(Response);
+            subcategoriesList = SubcategoryModel.ParseJson(Response);
         }
     }
 

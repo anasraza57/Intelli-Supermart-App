@@ -22,7 +22,7 @@ public class PictureModel {
 
         try {
             JSONObject jsonObject = new JSONObject(json);
-            JSONArray picturesArray = jsonObject.getJSONArray("category_images");
+            JSONArray picturesArray = jsonObject.getJSONArray("pictures");
             for (int i = 0; i < picturesArray.length(); i++) {
                 JSONObject pictureObject = picturesArray.getJSONObject(i);
                 int id = pictureObject.getInt("picture_id");
